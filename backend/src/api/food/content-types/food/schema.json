@@ -1,0 +1,49 @@
+{
+  "kind": "collectionType",
+  "collectionName": "foods",
+  "info": {
+    "singularName": "food",
+    "pluralName": "foods",
+    "displayName": "Food",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "Name": {
+      "type": "string",
+      "required": true
+    },
+    "Ingredients": {
+      "type": "text"
+    },
+    "MenuOrder": {
+      "type": "integer",
+      "required": true
+    },
+    "Spicy": {
+      "type": "integer",
+      "default": 0,
+      "max": 3
+    },
+    "StandardPrice": {
+      "type": "decimal",
+      "required": true,
+      "min": 0,
+      "max": 1000
+    },
+    "PriceBySize": {
+      "type": "decimal",
+      "required": true,
+      "min": 0,
+      "max": 1000
+    },
+    "Size": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::food-size.food-size"
+    }
+  }
+}
