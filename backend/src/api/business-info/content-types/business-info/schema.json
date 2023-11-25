@@ -1,0 +1,27 @@
+{
+  "kind": "singleType",
+  "collectionName": "business_infos",
+  "info": {
+    "singularName": "business-info",
+    "pluralName": "business-infos",
+    "displayName": "Business info"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "ShortName": {
+      "type": "string"
+    },
+    "NIP": {
+      "type": "integer"
+    },
+    "Email": {
+      "type": "email"
+    },
+    "Address": {
+      "type": "string"
+    }
+  }
+}

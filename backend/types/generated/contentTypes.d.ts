@@ -677,6 +677,39 @@ export interface PluginI18NLocale extends Schema.CollectionType {
   };
 }
 
+export interface ApiBusinessInfoBusinessInfo extends Schema.SingleType {
+  collectionName: 'business_infos';
+  info: {
+    singularName: 'business-info';
+    pluralName: 'business-infos';
+    displayName: 'Business info';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    ShortName: Attribute.String;
+    NIP: Attribute.Integer;
+    Email: Attribute.Email;
+    Address: Attribute.String;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::business-info.business-info',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::business-info.business-info',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
 export interface ApiFoodFood extends Schema.CollectionType {
   collectionName: 'foods';
   info: {
@@ -777,6 +810,7 @@ declare module '@strapi/types' {
       'plugin::users-permissions.role': PluginUsersPermissionsRole;
       'plugin::users-permissions.user': PluginUsersPermissionsUser;
       'plugin::i18n.locale': PluginI18NLocale;
+      'api::business-info.business-info': ApiBusinessInfoBusinessInfo;
       'api::food.food': ApiFoodFood;
       'api::food-size.food-size': ApiFoodSizeFoodSize;
     }
