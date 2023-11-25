@@ -710,12 +710,12 @@ export interface ApiBusinessInfoBusinessInfo extends Schema.SingleType {
   };
 }
 
-export interface ApiFoodFood extends Schema.CollectionType {
-  collectionName: 'foods';
+export interface ApiPizzaPizza extends Schema.CollectionType {
+  collectionName: 'pizzas';
   info: {
-    singularName: 'food';
-    pluralName: 'foods';
-    displayName: 'Food';
+    singularName: 'pizza';
+    pluralName: 'pizzas';
+    displayName: 'Pizza';
     description: '';
   };
   options: {
@@ -735,58 +735,58 @@ export interface ApiFoodFood extends Schema.CollectionType {
         max: 3;
       }> &
       Attribute.DefaultTo<0>;
-    StandardPrice: Attribute.Decimal &
+    PriceStandard: Attribute.Decimal &
       Attribute.Required &
       Attribute.SetMinMax<{
         min: 0;
-        max: 1000;
       }>;
-    PriceBySize: Attribute.Decimal &
-      Attribute.Required &
-      Attribute.SetMinMax<{
-        min: 0;
-        max: 1000;
-      }>;
-    Size: Attribute.Relation<
-      'api::food.food',
+    Sizes: Attribute.Relation<
+      'api::pizza.pizza',
       'oneToMany',
-      'api::food-size.food-size'
+      'api::pizza-size.pizza-size'
     >;
-    Category: Attribute.Enumeration<['pizza', 'kebab', 'addons']>;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
-    createdBy: Attribute.Relation<'api::food.food', 'oneToOne', 'admin::user'> &
+    createdBy: Attribute.Relation<
+      'api::pizza.pizza',
+      'oneToOne',
+      'admin::user'
+    > &
       Attribute.Private;
-    updatedBy: Attribute.Relation<'api::food.food', 'oneToOne', 'admin::user'> &
+    updatedBy: Attribute.Relation<
+      'api::pizza.pizza',
+      'oneToOne',
+      'admin::user'
+    > &
       Attribute.Private;
   };
 }
 
-export interface ApiFoodSizeFoodSize extends Schema.CollectionType {
-  collectionName: 'food_sizes';
+export interface ApiPizzaSizePizzaSize extends Schema.CollectionType {
+  collectionName: 'pizza_sizes';
   info: {
-    singularName: 'food-size';
-    pluralName: 'food-sizes';
-    displayName: 'FoodSize';
+    singularName: 'pizza-size';
+    pluralName: 'pizza-sizes';
+    displayName: 'PizzaSizes';
     description: '';
   };
   options: {
     draftAndPublish: true;
   };
   attributes: {
-    Name: Attribute.Enumeration<['standard', 'large']>;
+    Name: Attribute.Enumeration<['Standard', 'Large']>;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
     createdBy: Attribute.Relation<
-      'api::food-size.food-size',
+      'api::pizza-size.pizza-size',
       'oneToOne',
       'admin::user'
     > &
       Attribute.Private;
     updatedBy: Attribute.Relation<
-      'api::food-size.food-size',
+      'api::pizza-size.pizza-size',
       'oneToOne',
       'admin::user'
     > &
@@ -811,8 +811,8 @@ declare module '@strapi/types' {
       'plugin::users-permissions.user': PluginUsersPermissionsUser;
       'plugin::i18n.locale': PluginI18NLocale;
       'api::business-info.business-info': ApiBusinessInfoBusinessInfo;
-      'api::food.food': ApiFoodFood;
-      'api::food-size.food-size': ApiFoodSizeFoodSize;
+      'api::pizza.pizza': ApiPizzaPizza;
+      'api::pizza-size.pizza-size': ApiPizzaSizePizzaSize;
     }
   }
 }

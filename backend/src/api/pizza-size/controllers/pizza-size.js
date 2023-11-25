@@ -1,9 +1,9 @@
 'use strict';
 
 /**
- * food-size controller
+ * pizza-size controller
  */
 
 const { createCoreController } = require('@strapi/strapi').factories;
 
-module.exports = createCoreController('api::food-size.food-size');
+module.exports = createCoreController('api::pizza-size.pizza-size');

@@ -1,9 +1,9 @@
 'use strict';
 
 /**
- * food-size service
+ * pizza-size service
  */
 
 const { createCoreService } = require('@strapi/strapi').factories;
 
-module.exports = createCoreService('api::food-size.food-size');
+module.exports = createCoreService('api::pizza-size.pizza-size');

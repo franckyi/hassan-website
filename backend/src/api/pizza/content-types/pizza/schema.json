@@ -1,10 +1,10 @@
 {
   "kind": "collectionType",
-  "collectionName": "foods",
+  "collectionName": "pizzas",
   "info": {
-    "singularName": "food",
-    "pluralName": "foods",
-    "displayName": "Food",
+    "singularName": "pizza",
+    "pluralName": "pizzas",
+    "displayName": "Pizza",
     "description": ""
   },
   "options": {
@@ -21,39 +21,24 @@
     },
     "MenuOrder": {
       "type": "integer",
-      "required": true,
-      "min": 1
+      "min": 1,
+      "required": true
     },
     "Spicy": {
       "type": "integer",
       "default": 0,
-      "max": 3,
+      "min": 0,
+      "max": 3
+    },
+    "PriceStandard": {
+      "type": "decimal",
+      "required": true,
       "min": 0
     },
-    "StandardPrice": {
-      "type": "decimal",
-      "required": true,
-      "min": 0,
-      "max": 1000
-    },
-    "PriceBySize": {
-      "type": "decimal",
-      "required": true,
-      "min": 0,
-      "max": 1000
-    },
-    "Size": {
+    "Sizes": {
       "type": "relation",
       "relation": "oneToMany",
-      "target": "api::food-size.food-size"
-    },
-    "Category": {
-      "type": "enumeration",
-      "enum": [
-        "pizza",
-        "kebab",
-        "addons"
-      ]
+      "target": "api::pizza-size.pizza-size"
     }
   }
 }

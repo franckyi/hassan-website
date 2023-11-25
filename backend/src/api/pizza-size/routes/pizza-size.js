@@ -1,9 +1,9 @@
 'use strict';
 
 /**
- * food-size router
+ * pizza-size router
  */
 
 const { createCoreRouter } = require('@strapi/strapi').factories;
 
-module.exports = createCoreRouter('api::food-size.food-size');
+module.exports = createCoreRouter('api::pizza-size.pizza-size');

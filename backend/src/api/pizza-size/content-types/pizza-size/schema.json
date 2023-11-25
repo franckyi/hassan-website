@@ -1,10 +1,10 @@
 {
   "kind": "collectionType",
-  "collectionName": "food_sizes",
+  "collectionName": "pizza_sizes",
   "info": {
-    "singularName": "food-size",
-    "pluralName": "food-sizes",
-    "displayName": "FoodSize",
+    "singularName": "pizza-size",
+    "pluralName": "pizza-sizes",
+    "displayName": "PizzaSizes",
     "description": ""
   },
   "options": {
@@ -15,8 +15,8 @@
     "Name": {
       "type": "enumeration",
       "enum": [
-        "standard",
-        "large"
+        "Standard",
+        "Large"
       ]
     }
   }
