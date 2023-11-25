@@ -683,6 +683,7 @@ export interface ApiBusinessInfoBusinessInfo extends Schema.SingleType {
     singularName: 'business-info';
     pluralName: 'business-infos';
     displayName: 'Business info';
+    description: '';
   };
   options: {
     draftAndPublish: true;
@@ -692,6 +693,7 @@ export interface ApiBusinessInfoBusinessInfo extends Schema.SingleType {
     NIP: Attribute.Integer;
     Email: Attribute.Email;
     Address: Attribute.String;
+    Telephone: Attribute.Integer;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -703,6 +705,54 @@ export interface ApiBusinessInfoBusinessInfo extends Schema.SingleType {
       Attribute.Private;
     updatedBy: Attribute.Relation<
       'api::business-info.business-info',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
+export interface ApiKebabKebab extends Schema.CollectionType {
+  collectionName: 'kebabs';
+  info: {
+    singularName: 'kebab';
+    pluralName: 'kebabs';
+    displayName: 'Kebab';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    Name: Attribute.String & Attribute.Required;
+    Price: Attribute.Decimal &
+      Attribute.Required &
+      Attribute.SetMinMax<{
+        min: 1;
+        max: 1000;
+      }>;
+    MenuOrder: Attribute.Integer &
+      Attribute.Required &
+      Attribute.SetMinMax<{
+        min: 0;
+      }>;
+    Ingredients: Attribute.Text;
+    Spicy: Attribute.Integer &
+      Attribute.SetMinMax<{
+        min: 0;
+        max: 3;
+      }> &
+      Attribute.DefaultTo<0>;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::kebab.kebab',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::kebab.kebab',
       'oneToOne',
       'admin::user'
     > &
@@ -745,6 +795,11 @@ export interface ApiPizzaPizza extends Schema.CollectionType {
       'oneToMany',
       'api::pizza-size.pizza-size'
     >;
+    PriceDifference: Attribute.Decimal &
+      Attribute.SetMinMax<{
+        min: 1;
+      }>;
+    CustomLabelAfterName: Attribute.String;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -775,7 +830,8 @@ export interface ApiPizzaSizePizzaSize extends Schema.CollectionType {
     draftAndPublish: true;
   };
   attributes: {
-    Name: Attribute.Enumeration<['Standard', 'Large']>;
+    Name: Attribute.Enumeration<['Standard', 'Large']> &
+      Attribute.DefaultTo<'Standard'>;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -811,6 +867,7 @@ declare module '@strapi/types' {
       'plugin::users-permissions.user': PluginUsersPermissionsUser;
       'plugin::i18n.locale': PluginI18NLocale;
       'api::business-info.business-info': ApiBusinessInfoBusinessInfo;
+      'api::kebab.kebab': ApiKebabKebab;
       'api::pizza.pizza': ApiPizzaPizza;
       'api::pizza-size.pizza-size': ApiPizzaSizePizzaSize;
     }

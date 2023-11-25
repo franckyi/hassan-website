@@ -39,6 +39,13 @@
       "type": "relation",
       "relation": "oneToMany",
       "target": "api::pizza-size.pizza-size"
+    },
+    "PriceDifference": {
+      "type": "decimal",
+      "min": 1
+    },
+    "CustomLabelAfterName": {
+      "type": "string"
     }
   }
 }

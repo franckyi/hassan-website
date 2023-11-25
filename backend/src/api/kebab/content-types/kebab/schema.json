@@ -1,0 +1,39 @@
+{
+  "kind": "collectionType",
+  "collectionName": "kebabs",
+  "info": {
+    "singularName": "kebab",
+    "pluralName": "kebabs",
+    "displayName": "Kebab"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "Name": {
+      "type": "string",
+      "required": true
+    },
+    "Price": {
+      "type": "decimal",
+      "min": 1,
+      "max": 1000,
+      "required": true
+    },
+    "MenuOrder": {
+      "type": "integer",
+      "required": true,
+      "min": 0
+    },
+    "Ingredients": {
+      "type": "text"
+    },
+    "Spicy": {
+      "type": "integer",
+      "min": 0,
+      "default": 0,
+      "max": 3
+    }
+  }
+}

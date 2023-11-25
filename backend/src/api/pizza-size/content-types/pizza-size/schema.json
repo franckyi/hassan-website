@@ -17,7 +17,8 @@
       "enum": [
         "Standard",
         "Large"
-      ]
+      ],
+      "default": "Standard"
     }
   }
 }
