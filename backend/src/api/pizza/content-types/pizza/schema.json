@@ -12,40 +12,44 @@
   },
   "pluginOptions": {},
   "attributes": {
-    "Name": {
+    "name": {
       "type": "string",
       "required": true
     },
-    "Ingredients": {
+    "ingredients": {
       "type": "text"
     },
-    "MenuOrder": {
+    "menuOrder": {
       "type": "integer",
       "min": 1,
       "required": true
     },
-    "Spicy": {
+    "spicy": {
       "type": "integer",
       "default": 0,
       "min": 0,
       "max": 3
     },
-    "PriceStandard": {
+    "price": {
       "type": "decimal",
       "required": true,
       "min": 0
     },
-    "Sizes": {
+    "sizes": {
       "type": "relation",
       "relation": "oneToMany",
       "target": "api::pizza-size.pizza-size"
     },
-    "PriceDifference": {
+    "priceDiff": {
       "type": "decimal",
       "min": 1
     },
-    "CustomLabelAfterName": {
+    "customLabelAfterName": {
       "type": "string"
+    },
+    "isBestSeller": {
+      "type": "boolean",
+      "default": false
     }
   }
 }

@@ -689,11 +689,11 @@ export interface ApiBusinessInfoBusinessInfo extends Schema.SingleType {
     draftAndPublish: true;
   };
   attributes: {
-    ShortName: Attribute.String;
-    NIP: Attribute.Integer;
-    Email: Attribute.Email;
-    Address: Attribute.String;
-    Telephone: Attribute.Integer;
+    shortName: Attribute.String;
+    nip: Attribute.Integer;
+    email: Attribute.Email;
+    address: Attribute.String;
+    phone: Attribute.Integer;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -718,30 +718,32 @@ export interface ApiKebabKebab extends Schema.CollectionType {
     singularName: 'kebab';
     pluralName: 'kebabs';
     displayName: 'Kebab';
+    description: '';
   };
   options: {
     draftAndPublish: true;
   };
   attributes: {
-    Name: Attribute.String & Attribute.Required;
-    Price: Attribute.Decimal &
+    name: Attribute.String & Attribute.Required;
+    price: Attribute.Decimal &
       Attribute.Required &
       Attribute.SetMinMax<{
         min: 1;
         max: 1000;
       }>;
-    MenuOrder: Attribute.Integer &
+    menuOrder: Attribute.Integer &
       Attribute.Required &
       Attribute.SetMinMax<{
         min: 0;
       }>;
-    Ingredients: Attribute.Text;
-    Spicy: Attribute.Integer &
+    ingredients: Attribute.Text;
+    spicy: Attribute.Integer &
       Attribute.SetMinMax<{
         min: 0;
         max: 3;
       }> &
       Attribute.DefaultTo<0>;
+    isBestSeller: Attribute.Boolean;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -772,34 +774,35 @@ export interface ApiPizzaPizza extends Schema.CollectionType {
     draftAndPublish: true;
   };
   attributes: {
-    Name: Attribute.String & Attribute.Required;
-    Ingredients: Attribute.Text;
-    MenuOrder: Attribute.Integer &
+    name: Attribute.String & Attribute.Required;
+    ingredients: Attribute.Text;
+    menuOrder: Attribute.Integer &
       Attribute.Required &
       Attribute.SetMinMax<{
         min: 1;
       }>;
-    Spicy: Attribute.Integer &
+    spicy: Attribute.Integer &
       Attribute.SetMinMax<{
         min: 0;
         max: 3;
       }> &
       Attribute.DefaultTo<0>;
-    PriceStandard: Attribute.Decimal &
+    price: Attribute.Decimal &
       Attribute.Required &
       Attribute.SetMinMax<{
         min: 0;
       }>;
-    Sizes: Attribute.Relation<
+    sizes: Attribute.Relation<
       'api::pizza.pizza',
       'oneToMany',
       'api::pizza-size.pizza-size'
     >;
-    PriceDifference: Attribute.Decimal &
+    priceDiff: Attribute.Decimal &
       Attribute.SetMinMax<{
         min: 1;
       }>;
-    CustomLabelAfterName: Attribute.String;
+    customLabelAfterName: Attribute.String;
+    isBestSeller: Attribute.Boolean & Attribute.DefaultTo<false>;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -830,7 +833,7 @@ export interface ApiPizzaSizePizzaSize extends Schema.CollectionType {
     draftAndPublish: true;
   };
   attributes: {
-    Name: Attribute.Enumeration<['Standard', 'Large']> &
+    name: Attribute.Enumeration<['Standard', 'Large']> &
       Attribute.DefaultTo<'Standard'>;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;

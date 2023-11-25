@@ -12,19 +12,19 @@
   },
   "pluginOptions": {},
   "attributes": {
-    "ShortName": {
+    "shortName": {
       "type": "string"
     },
-    "NIP": {
+    "nip": {
       "type": "integer"
     },
-    "Email": {
+    "email": {
       "type": "email"
     },
-    "Address": {
+    "address": {
       "type": "string"
     },
-    "Telephone": {
+    "phone": {
       "type": "integer"
     }
   }
