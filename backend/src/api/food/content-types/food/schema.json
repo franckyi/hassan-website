@@ -21,12 +21,14 @@
     },
     "MenuOrder": {
       "type": "integer",
-      "required": true
+      "required": true,
+      "min": 1
     },
     "Spicy": {
       "type": "integer",
       "default": 0,
-      "max": 3
+      "max": 3,
+      "min": 0
     },
     "StandardPrice": {
       "type": "decimal",
@@ -44,6 +46,14 @@
       "type": "relation",
       "relation": "oneToMany",
       "target": "api::food-size.food-size"
+    },
+    "Category": {
+      "type": "enumeration",
+      "enum": [
+        "pizza",
+        "kebab",
+        "addons"
+      ]
     }
   }
 }

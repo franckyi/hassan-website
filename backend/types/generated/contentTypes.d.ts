@@ -691,9 +691,14 @@ export interface ApiFoodFood extends Schema.CollectionType {
   attributes: {
     Name: Attribute.String & Attribute.Required;
     Ingredients: Attribute.Text;
-    MenuOrder: Attribute.Integer & Attribute.Required;
+    MenuOrder: Attribute.Integer &
+      Attribute.Required &
+      Attribute.SetMinMax<{
+        min: 1;
+      }>;
     Spicy: Attribute.Integer &
       Attribute.SetMinMax<{
+        min: 0;
         max: 3;
       }> &
       Attribute.DefaultTo<0>;
@@ -714,6 +719,7 @@ export interface ApiFoodFood extends Schema.CollectionType {
       'oneToMany',
       'api::food-size.food-size'
     >;
+    Category: Attribute.Enumeration<['pizza', 'kebab', 'addons']>;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
