@@ -1,21 +1,30 @@
-export default function Menu({ pizzas }) {
-  return (
-    <ul>
-      {pizzas &&
-        pizzas.map((pizza) => {
-          <li key={pizza.id}>{pizza.name}</li>;
-        })}
-    </ul>
-  );
+import LocalPizzaOutlinedIcon from "@mui/icons-material/LocalPizzaOutlined";
+
+async function getPizzas() {
+  const res = await fetch("http://localhost:1337/api/pizzas?populate=*");
+
+  if (!res.ok) {
+    throw new Error("Failed to fetch pizzas... Please try again later.");
+  }
+
+  return res.json();
 }
 
-export async function getStaticProps() {
-  const res = await fetch("http://localhost:1337/api/pizzas?populate=*");
-  const pizzas = await res.json();
+export default async function Menu() {
+  const pizzas = await getPizzas();
 
-  return {
-    props: {
-      pizzas,
-    },
-  };
+  return (
+    <ul>
+      {pizzas.data.map((pizza) => (
+        <li key={pizza.id}>
+          <LocalPizzaOutlinedIcon />
+          {pizza.attributes.name}
+          {pizza.attributes.price}
+          {pizza.attributes.spicy}
+          {pizza.attributes.customLabelAfterName}
+          {pizza.attributes.ingredients}
+        </li>
+      ))}
+    </ul>
+  );
 }

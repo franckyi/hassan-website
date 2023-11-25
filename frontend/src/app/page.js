@@ -12,9 +12,9 @@ export default function Home() {
           Zobacz Menu
         </a>
         <h2>Nasze hity</h2>
-        <article>
+        {/* <article>
           <Image />
-        </article>
+        </article> */}
         <h2>Menu</h2>
         <Menu />
         <h2>Jak dojechać</h2>
