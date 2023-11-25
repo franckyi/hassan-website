@@ -12,32 +12,32 @@ export default function AppBar() {
         priority
         draggable="false"
       />
-      <div>
+      <div className="font-bold text-lg">
         <a
           href="#"
-          className="text-sm lg:ml-4 px-2 lg:px-4 py-2 border-2 border-slate-900 hover:border-2 hover:border-b-8 hover:border-amber-400 hover:rounded"
+          className="lg:ml-4 px-2 lg:px-4 py-2 border-2 border-orange-900 hover:bg-orange-500 hover:border-orange-500 hover:text-stone-950 rounded"
         >
           Menu
         </a>
         <a
           href="#"
-          className="text-sm lg:ml-4 px-2 lg:px-4 py-2 border-2 border-slate-900 hover:border-2 hover:border-b-8 hover:border-amber-400 hover:rounded"
+          className="lg:ml-4 px-2 lg:px-4 py-2 border-2 border-orange-900 hover:bg-orange-500 hover:border-orange-500 hover:text-stone-950 rounded"
         >
           Galeria
         </a>
         <a
           href="#"
-          className="text-sm lg:ml-4 px-2 lg:px-4 py-2 border-2 border-slate-900 hover:border-2 hover:border-b-8 hover:border-amber-400 hover:rounded"
+          className="lg:ml-4 px-2 lg:px-4 py-2 border-2 border-orange-900 hover:bg-orange-500 hover:border-orange-500 hover:text-stone-950 rounded"
         >
           Jak dojechać
         </a>
-        <a
-          href="#"
-          className="text-sm lg:ml-4 px-2 lg:px-4 py-2 border-2 border-slate-900 hover:border-2 hover:border-b-8 hover:border-amber-400 hover:rounded"
-        >
-          Zadzwoń
-        </a>
       </div>
+      <a
+        href="#"
+        className="text-lg lg:mr-8 px-2 lg:px-4 py-2 font-bold text-stone-950 bg-orange-500 hover:bg-orange-700 hover:text-white rounded"
+      >
+        Zadzwoń
+      </a>
     </nav>
   );
 }

@@ -6,7 +6,7 @@ export default function Home() {
   return (
     <>
       <AppBar />
-      <main className="flex min-h-screen flex-col items-center justify-between p-24 bg-[url('/bg.webp')] bg-cover bg-center bg-no-repeat">
+      <main className="flex min-h-screen flex-col items-center justify-between p-24 bg-[url('/bg.webp')] bg-contain bg-no-repeat">
         <p className="z-50 text-5xl font-extrabold">Mistrzowie smaku</p>
         <a className="z-50" href="#">
           Zobacz Menu
