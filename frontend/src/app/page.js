@@ -10,11 +10,11 @@ export default function Home() {
       <AppBar />
       <main className="flex min-h-screen flex-col items-center justify-between p-24 bg-[url('/bg.webp')] bg-contain bg-no-repeat selection:text-orange-500">
         <Intro />
-        <InteriorImages />
         <Hits />
-        <h2>Menu</h2>
+
         <Menu />
-        <h2>Jak dojechać</h2>
+        <InteriorImages />
+        <h2 className="my-8 font-extrabold lg:text-5xl">Jak dojechać</h2>
       </main>
     </>
   );
