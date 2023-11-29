@@ -12,18 +12,21 @@ export default function InteriorImages() {
           className="hover:scale-110 ease-in duration-150"
           width={400}
           height={200}
+          alt="wnętrz restauracji"
         />
         <Image
           src="/local-2.webp"
           className="hover:scale-110 ease-in duration-150"
           width={400}
           height={200}
+          alt="wnętrz restauracji"
         />
         <Image
           src="/local-3.webp"
           className="hover:scale-110 ease-in duration-150"
           width={400}
           height={200}
+          alt="wnętrz restauracji"
         />
       </article>
     </>

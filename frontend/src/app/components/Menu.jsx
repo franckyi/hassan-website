@@ -1,4 +1,4 @@
-import * as React from "react";
+import { useState, useEffect } from "react";
 import LocalPizzaOutlinedIcon from "@mui/icons-material/LocalPizzaOutlined";
 import LocalFireDepartmentRoundedIcon from "@mui/icons-material/LocalFireDepartmentRounded";
 
@@ -6,8 +6,10 @@ const currency = "zł";
 const standardSize = "24 cm";
 const largeSize = "32 cm";
 
-async function getData() {
-  const res = await fetch("http://localhost:1337/api/pizzas?populate=*");
+async function getMenuItems(selectedMenu) {
+  const res = await fetch(
+    `http://localhost:1337/api/${selectedMenu}?populate=*`
+  );
 
   if (!res.ok) {
     throw new Error("Failed to fetch pizzas... Please try again later.");
@@ -16,18 +18,33 @@ async function getData() {
   return res.json();
 }
 
-const dataList = await getData();
+export default function Menu({ selectedMenu }) {
+  const [menuItems, setMenuItems] = useState([]);
 
-export default function Menu() {
+  useEffect(() => {
+    async function fetchData() {
+      try {
+        const data = await getMenuItems(selectedMenu);
+        setMenuItems(data.data);
+      } catch (error) {
+        console.error("Error fetching data:", error);
+      }
+    }
+
+    fetchData();
+  }, []);
+
   return (
     <div className="p-4 w-3/4 bg-stone-900/90">
-      <p className="mb-4 text-md text-right">
-        <span>{standardSize} </span>
-        <span className="text-stone-500"> / </span>
-        <span className="text-orange-500">{largeSize}</span>
-      </p>
+      {selectedMenu === "pizzas" && (
+        <p className="mb-4 text-md text-right">
+          <span>{standardSize} </span>
+          <span className="text-stone-500"> / </span>
+          <span className="text-orange-500">{largeSize}</span>
+        </p>
+      )}
       <ul>
-        {dataList.data.map((item) => (
+        {menuItems.map((item) => (
           <li className="flex justify-between gap-4 mb-4" key={item.id}>
             <LocalPizzaOutlinedIcon />
             <div className="grow">
@@ -56,11 +73,15 @@ export default function Menu() {
                   {item.attributes.price}{" "}
                   <span className="text-xs">{currency}</span>
                 </span>
-                <span className="text-xl text-stone-500">&nbsp;/</span> &nbsp;
-                <span className="text-orange-500 text-xl font-bold">
-                  {item.attributes.price + item.attributes.priceDiff}&nbsp;
-                  <span className="text-xs">{currency}</span>
-                </span>
+                {selectedMenu === "pizzas" && (
+                  <span className="text-xl text-stone-500">&nbsp;/&nbsp;</span>
+                )}
+                {selectedMenu === "pizzas" && (
+                  <span className="text-orange-500 text-xl font-bold">
+                    {item.attributes.price + item.attributes.priceDiff}&nbsp;
+                    <span className="text-xs">{currency}</span>
+                  </span>
+                )}
               </div>
 
               <span className="text-sm text-stone-400">
