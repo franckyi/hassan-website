@@ -26,6 +26,9 @@
     },
     "phone": {
       "type": "integer"
+    },
+    "description": {
+      "type": "text"
     }
   }
 }

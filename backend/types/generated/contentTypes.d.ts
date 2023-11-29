@@ -694,6 +694,7 @@ export interface ApiBusinessInfoBusinessInfo extends Schema.SingleType {
     email: Attribute.Email;
     address: Attribute.String;
     phone: Attribute.Integer;
+    description: Attribute.Text;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
