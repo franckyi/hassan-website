@@ -695,6 +695,8 @@ export interface ApiBusinessInfoBusinessInfo extends Schema.SingleType {
     address: Attribute.String;
     phone: Attribute.Integer;
     description: Attribute.Text;
+    descriptionPart2: Attribute.Text;
+    descriptionPart3: Attribute.Text;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -706,6 +708,37 @@ export interface ApiBusinessInfoBusinessInfo extends Schema.SingleType {
       Attribute.Private;
     updatedBy: Attribute.Relation<
       'api::business-info.business-info',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
+export interface ApiDodatkiDodatki extends Schema.CollectionType {
+  collectionName: 'dodatkis';
+  info: {
+    singularName: 'dodatki';
+    pluralName: 'dodatkis';
+    displayName: 'Dodatki';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    name: Attribute.String;
+    price: Attribute.String;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::dodatki.dodatki',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::dodatki.dodatki',
       'oneToOne',
       'admin::user'
     > &
@@ -822,6 +855,40 @@ export interface ApiPizzaPizza extends Schema.CollectionType {
   };
 }
 
+export interface ApiPizzaAddonPizzaAddon extends Schema.SingleType {
+  collectionName: 'pizza_addons';
+  info: {
+    singularName: 'pizza-addon';
+    pluralName: 'pizza-addons';
+    displayName: 'Pizza Addons';
+    description: '';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    name: Attribute.String;
+    priceSmall: Attribute.Integer;
+    priceBig: Attribute.Integer;
+    priceMega: Attribute.Integer;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::pizza-addon.pizza-addon',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::pizza-addon.pizza-addon',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
 export interface ApiPizzaSizePizzaSize extends Schema.CollectionType {
   collectionName: 'pizza_sizes';
   info: {
@@ -871,8 +938,10 @@ declare module '@strapi/types' {
       'plugin::users-permissions.user': PluginUsersPermissionsUser;
       'plugin::i18n.locale': PluginI18NLocale;
       'api::business-info.business-info': ApiBusinessInfoBusinessInfo;
+      'api::dodatki.dodatki': ApiDodatkiDodatki;
       'api::kebab.kebab': ApiKebabKebab;
       'api::pizza.pizza': ApiPizzaPizza;
+      'api::pizza-addon.pizza-addon': ApiPizzaAddonPizzaAddon;
       'api::pizza-size.pizza-size': ApiPizzaSizePizzaSize;
     }
   }

@@ -29,6 +29,12 @@
     },
     "description": {
       "type": "text"
+    },
+    "descriptionPart2": {
+      "type": "text"
+    },
+    "descriptionPart3": {
+      "type": "text"
     }
   }
 }
