@@ -3,9 +3,7 @@ import { useState, useEffect } from "react";
 import AppBar from "./components/AppBar";
 import InteriorImages from "./components/InteriorImages";
 import Intro from "./components/Intro";
-import Hits from "./components/Hits";
 import MenuFilter from "./components/MenuFilter";
-// import CircularIndeterminate from "./components/CircularIndeterminate";
 import getBusinessInfo from "./services/getBusinessInfo";
 
 export default function Home() {
@@ -29,7 +27,6 @@ export default function Home() {
 
   if (!businessInfo) {
     return <p>Ładuję...</p>;
-    // <CircularIndeterminate />;
   }
 
   return (
@@ -43,13 +40,8 @@ export default function Home() {
         <p className="my-8 text-xl w-2/4">
           {businessInfo.data.attributes.descriptionPart2}
         </p>
-        <p className="text-xl w-2/4">
-          {businessInfo.data.attributes.descriptionPart3}
-        </p>
-        <Hits />
         <MenuFilter />
         <InteriorImages />
-        <h2 className="my-8 font-extrabold lg:text-5xl">Jak dojechać</h2>
       </main>
     </>
   );

@@ -41,7 +41,7 @@ export default function Menu({ selectedMenu }) {
   }, []);
 
   return (
-    <div className="p-4 w-3/4 bg-stone-900/90">
+    <div className="p-4 bg-stone-900/90">
       {selectedMenu === "pizzas" && (
         <p className="mb-4 text-md text-right">
           <span>{standardSize} </span>
@@ -79,7 +79,9 @@ export default function Menu({ selectedMenu }) {
                 <div className="grow border-b-2 border-dotted border-stone-500"></div>
                 <span className="text-xl font-bold">
                   {item.attributes.price}{" "}
-                  <span className="text-xs">{currency}</span>
+                  {selectedMenu !== "dodatkis" && (
+                    <span className="text-xs">{currency}</span>
+                  )}
                 </span>
                 {selectedMenu === "pizzas" &&
                   item.attributes.priceDiff !== 0 && (

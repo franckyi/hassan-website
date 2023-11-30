@@ -1,9 +1,9 @@
 const heroTextLines = ["Życie jest", "kwestią smaku!"];
 
-const links = [
-  { name: "Nasze hity", link: "#" },
-  { name: "Zobacz Menu", link: "#" },
-];
+// const links = [
+//   { name: "Nasze hity", link: "#" },
+//   { name: "Zobacz Menu", link: "#" },
+// ];
 
 export default function Intro() {
   return (
@@ -15,7 +15,7 @@ export default function Intro() {
           </p>
         );
       })}
-      {links.map((item, index) => {
+      {/* {links.map((item, index) => {
         return (
           <a
             key={index}
@@ -25,7 +25,7 @@ export default function Intro() {
             {item.name}
           </a>
         );
-      })}
+      })} */}
     </section>
   );
 }

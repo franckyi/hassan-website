@@ -1,10 +1,32 @@
+"use client";
 import Image from "next/image";
+import { useState, useEffect } from "react";
 import LocalPhoneIcon from "@mui/icons-material/LocalPhone";
 import MyLocationOutlinedIcon from "@mui/icons-material/MyLocationOutlined";
 import PhotoLibraryOutlinedIcon from "@mui/icons-material/PhotoLibraryOutlined";
 import MenuBookOutlinedIcon from "@mui/icons-material/MenuBookOutlined";
+import getBusinessInfo from "../services/getBusinessInfo";
+import Link from "next/link";
 
 export default function AppBar() {
+  const [businessInfo, setBusinessInfo] = useState(null);
+
+  const fetchBusinessInfo = async () => {
+    try {
+      const info = await getBusinessInfo();
+      setBusinessInfo(info);
+    } catch (error) {
+      console.error(
+        "Nie udało się pobierać danych. Spróbuj ponownie później.",
+        error
+      );
+    }
+  };
+
+  useEffect(() => {
+    fetchBusinessInfo();
+  }, []);
+
   return (
     <nav className="flex justify-between p-4 items-center bg-stone-950">
       <Image
@@ -25,27 +47,29 @@ export default function AppBar() {
           &nbsp;Menu
         </a>
         <a
-          href="#"
+          href="#galeria"
           className="lg:ml-4 px-2 lg:px-4 py-2 border-2 border-orange-900 hover:bg-orange-500 hover:border-orange-500 hover:text-stone-950 rounded"
         >
           <PhotoLibraryOutlinedIcon />
           &nbsp;Galeria
         </a>
-        <a
-          href="#"
+        <Link
+          href="/contacts"
           className="lg:ml-4 px-2 lg:px-4 py-2 border-2 border-orange-900 hover:bg-orange-500 hover:border-orange-500 hover:text-stone-950 rounded"
         >
           <MyLocationOutlinedIcon />
           &nbsp;Jak dojechać
-        </a>
+        </Link>
       </div>
-      <a
-        href="#"
-        className="text-lg lg:mr-8 px-2 lg:px-4 py-2 font-bold text-stone-950 bg-orange-500 hover:bg-orange-700 hover:text-white rounded"
-      >
-        <LocalPhoneIcon />
-        &nbsp;Zadzwoń
-      </a>
+      {businessInfo && (
+        <a
+          href={`tel:${businessInfo.data.attributes.phone}`}
+          className="text-lg lg:mr-8 px-2 lg:px-4 py-2 font-bold text-stone-950 bg-orange-500 hover:bg-orange-700 hover:text-white rounded"
+        >
+          <LocalPhoneIcon />
+          &nbsp;{businessInfo.data.attributes.phone}
+        </a>
+      )}
     </nav>
   );
 }
