@@ -1,7 +1,7 @@
-import { Manrope } from "next/font/google";
+import { Lora } from "next/font/google";
 import "./globals.css";
 
-const FONT = Manrope({ subsets: ["latin"] });
+const FONT = Lora({ subsets: ["latin"] });
 
 export const metadata = {
   title: "Hassan Pizzeria & Kebab",

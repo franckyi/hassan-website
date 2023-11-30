@@ -3,7 +3,6 @@ import { useState, useEffect } from "react";
 import AppBar from "./components/AppBar";
 import InteriorImages from "./components/InteriorImages";
 import Intro from "./components/Intro";
-import MenuFilter from "./components/MenuFilter";
 import getBusinessInfo from "./services/getBusinessInfo";
 
 export default function Home() {
@@ -40,7 +39,6 @@ export default function Home() {
         <p className="my-8 text-xl w-2/4">
           {businessInfo.data.attributes.descriptionPart2}
         </p>
-        <MenuFilter />
         <InteriorImages />
       </main>
     </>

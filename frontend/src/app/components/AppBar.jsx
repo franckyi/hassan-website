@@ -39,20 +39,20 @@ export default function AppBar() {
         draggable="false"
       />
       <div className="font-bold text-lg uppercase">
-        <a
-          href="#menu"
+        <Link
+          href="/"
+          className="lg:ml-4 px-2 lg:px-4 py-2 border-2 border-orange-900 hover:bg-orange-500 hover:border-orange-500 hover:text-stone-950 rounded"
+        >
+          <MenuBookOutlinedIcon />
+          &nbsp;Lokal
+        </Link>
+        <Link
+          href="/menu"
           className="lg:ml-4 px-2 lg:px-4 py-2 border-2 border-orange-900 hover:bg-orange-500 hover:border-orange-500 hover:text-stone-950 rounded"
         >
           <MenuBookOutlinedIcon />
           &nbsp;Menu
-        </a>
-        <a
-          href="#galeria"
-          className="lg:ml-4 px-2 lg:px-4 py-2 border-2 border-orange-900 hover:bg-orange-500 hover:border-orange-500 hover:text-stone-950 rounded"
-        >
-          <PhotoLibraryOutlinedIcon />
-          &nbsp;Galeria
-        </a>
+        </Link>
         <Link
           href="/contacts"
           className="lg:ml-4 px-2 lg:px-4 py-2 border-2 border-orange-900 hover:bg-orange-500 hover:border-orange-500 hover:text-stone-950 rounded"
