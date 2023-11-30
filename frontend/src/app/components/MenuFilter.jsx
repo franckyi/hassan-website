@@ -6,7 +6,7 @@ const menus = ["pizza", "kebab", "dodatki"];
 const heading = "Menu";
 
 export default function MenuFilter() {
-  const [filter, setFilter] = useState(null);
+  const [filter, setFilter] = useState("pizza");
 
   return (
     <div className="my-4 text-center">
@@ -15,20 +15,22 @@ export default function MenuFilter() {
       {menus.map((menu, index) => {
         let classes =
           "px-4 uppercase text-orange-500 hover:text-white font-bold";
-        let selected;
+        const activeColorClass = " text-white";
+        let selectedMenu;
 
         function handleClick() {
-          setFilter(selected);
+          setFilter(selectedMenu);
         }
 
         if (menu === "kebab") {
           classes += " border-orange-800 border-x";
-          selected = "kebab";
-        } else if (menu === "pizza") {
-          selected = "pizza";
-        } else if (menu === "dodatki") {
-          selected = "dodatki";
         }
+
+        if (menu === filter) {
+          classes += activeColorClass;
+        }
+
+        selectedMenu = menu;
 
         return (
           <button key={index} onClick={handleClick} className={classes}>
@@ -36,9 +38,9 @@ export default function MenuFilter() {
           </button>
         );
       })}
-      {filter === "pizza" && filter && <Menu selectedMenu={"pizzas"} />}
-      {filter === "kebab" && filter && <Menu selectedMenu={"kebabs"} />}
-      {filter === "dodatki" && filter && <Menu selectedMenu={"addons"} />}
+      {filter === "pizza" && filter && <Menu selectedMenu={`${filter}s`} />}
+      {filter === "kebab" && filter && <Menu selectedMenu={`${filter}s`} />}
+      {filter === "dodatki" && filter && <Menu selectedMenu={`${filter}s`} />}
     </div>
   );
 }

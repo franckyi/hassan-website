@@ -1,6 +1,9 @@
 import { useState, useEffect } from "react";
 import LocalPizzaOutlinedIcon from "@mui/icons-material/LocalPizzaOutlined";
 import LocalFireDepartmentRoundedIcon from "@mui/icons-material/LocalFireDepartmentRounded";
+import CelebrationTwoToneIcon from "@mui/icons-material/CelebrationTwoTone";
+import AddIcon from "@mui/icons-material/Add";
+import CircularIndeterminate from "./CircularIndeterminate";
 
 const currency = "zł";
 const standardSize = "24 cm";
@@ -25,6 +28,9 @@ export default function Menu({ selectedMenu }) {
     async function fetchData() {
       try {
         const data = await getMenuItems(selectedMenu);
+
+        // if (!data) return <CircularIndeterminate />; TODO: FIX SPINNER
+
         setMenuItems(data.data);
       } catch (error) {
         console.error("Error fetching data:", error);
@@ -46,7 +52,9 @@ export default function Menu({ selectedMenu }) {
       <ul>
         {menuItems.map((item) => (
           <li className="flex justify-between gap-4 mb-4" key={item.id}>
-            <LocalPizzaOutlinedIcon />
+            {selectedMenu === "pizzas" && <LocalPizzaOutlinedIcon />}
+            {selectedMenu === "kebabs" && <CelebrationTwoToneIcon />}
+            {selectedMenu === "dodatkis" && <AddIcon />}
             <div className="grow">
               <div className="flex">
                 <h4 className="text-xl font-bold uppercase">
@@ -73,15 +81,19 @@ export default function Menu({ selectedMenu }) {
                   {item.attributes.price}{" "}
                   <span className="text-xs">{currency}</span>
                 </span>
-                {selectedMenu === "pizzas" && (
-                  <span className="text-xl text-stone-500">&nbsp;/&nbsp;</span>
-                )}
-                {selectedMenu === "pizzas" && (
-                  <span className="text-orange-500 text-xl font-bold">
-                    {item.attributes.price + item.attributes.priceDiff}&nbsp;
-                    <span className="text-xs">{currency}</span>
-                  </span>
-                )}
+                {selectedMenu === "pizzas" &&
+                  item.attributes.priceDiff !== 0 && (
+                    <span className="text-xl text-stone-500">
+                      &nbsp;/&nbsp;
+                    </span>
+                  )}
+                {selectedMenu === "pizzas" &&
+                  item.attributes.priceDiff !== 0 && (
+                    <span className="text-orange-500 text-xl font-bold">
+                      {item.attributes.price + item.attributes.priceDiff}&nbsp;
+                      <span className="text-xs">{currency}</span>
+                    </span>
+                  )}
               </div>
 
               <span className="text-sm text-stone-400">

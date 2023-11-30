@@ -18,7 +18,7 @@ export default function AppBar() {
       />
       <div className="font-bold text-lg uppercase">
         <a
-          href="#"
+          href="#menu"
           className="lg:ml-4 px-2 lg:px-4 py-2 border-2 border-orange-900 hover:bg-orange-500 hover:border-orange-500 hover:text-stone-950 rounded"
         >
           <MenuBookOutlinedIcon />

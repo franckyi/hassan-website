@@ -5,20 +5,19 @@ import InteriorImages from "./components/InteriorImages";
 import Intro from "./components/Intro";
 import Hits from "./components/Hits";
 import MenuFilter from "./components/MenuFilter";
+// import CircularIndeterminate from "./components/CircularIndeterminate";
 import getBusinessInfo from "./services/getBusinessInfo";
 
 export default function Home() {
   const [businessInfo, setBusinessInfo] = useState(null);
 
-  // Funzione per ottenere e impostare le informazioni commerciali
   const fetchBusinessInfo = async () => {
     try {
       const info = await getBusinessInfo();
       setBusinessInfo(info);
     } catch (error) {
-      // Gestisci gli errori qui, ad esempio:
       console.error(
-        "Errore nel recupero delle informazioni commerciali:",
+        "Nie udało się pobierać danych. Spróbuj ponownie później.",
         error
       );
     }
@@ -26,11 +25,11 @@ export default function Home() {
 
   useEffect(() => {
     fetchBusinessInfo();
-  }, []); // L'array vuoto indica che l'effetto viene eseguito solo al mount del componente
+  }, []);
 
-  // Se le informazioni commerciali sono ancora in caricamento, mostra un messaggio di caricamento
   if (!businessInfo) {
     return <p>Ładuję...</p>;
+    // <CircularIndeterminate />;
   }
 
   return (
@@ -40,6 +39,12 @@ export default function Home() {
         <Intro />
         <p className="text-xl w-2/4">
           {businessInfo.data.attributes.description}
+        </p>
+        <p className="my-8 text-xl w-2/4">
+          {businessInfo.data.attributes.descriptionPart2}
+        </p>
+        <p className="text-xl w-2/4">
+          {businessInfo.data.attributes.descriptionPart3}
         </p>
         <Hits />
         <MenuFilter />
