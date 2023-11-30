@@ -42,7 +42,7 @@
     },
     "priceDiff": {
       "type": "decimal",
-      "min": 1
+      "min": 0
     },
     "customLabelAfterName": {
       "type": "string"

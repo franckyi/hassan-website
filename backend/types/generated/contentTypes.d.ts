@@ -833,7 +833,7 @@ export interface ApiPizzaPizza extends Schema.CollectionType {
     >;
     priceDiff: Attribute.Decimal &
       Attribute.SetMinMax<{
-        min: 1;
+        min: 0;
       }>;
     customLabelAfterName: Attribute.String;
     isBestSeller: Attribute.Boolean & Attribute.DefaultTo<false>;
