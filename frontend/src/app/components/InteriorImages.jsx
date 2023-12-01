@@ -28,13 +28,13 @@ export default function InteriorImages() {
   }, []);
   return (
     <>
-      <article className="w-full flex">
+      <article className="w-full lg:flex">
         {images.map((img, index) => {
           return (
             <Image
               key={index}
               src={img.src}
-              className="w-1/3 hover:scale-110 ease-in duration-150"
+              className="w-3/3 lg:w-1/3 hover:scale-110 ease-in duration-150"
               width={400}
               height={200}
               alt="wnętrz restauracji"
@@ -44,7 +44,7 @@ export default function InteriorImages() {
       </article>
 
       {businessInfo && (
-        <p className="text-xl w-2/4 my-16 text-center">
+        <p className="text-xl lg:w-2/4 mx-8 my-16 text-center">
           {businessInfo.data.attributes.descriptionPart3}
         </p>
       )}

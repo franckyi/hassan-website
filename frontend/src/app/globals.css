@@ -44,7 +44,13 @@ body {
   position: relative;
   display: block;
   width: calc(100% + 1.3px);
-  height: 240px;
+  height: 80px;
+}
+
+.custom-shape-divider-bottom-1701452007 svg {
+  @media (min-width: 992px) {
+    height: 240px;
+  }
 }
 
 .custom-shape-divider-bottom-1701452007 .shape-fill {

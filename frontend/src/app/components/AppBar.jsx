@@ -47,7 +47,8 @@ export default function AppBar() {
   }, []);
 
   return (
-    <nav className="flex justify-between m-4 p-4 items-center gap-4 bg-stone-900 fixed z-50 rounded-xl">
+    // MAKE VISIBLE AGAIN
+    <nav className="z-50 hidden fixed bottom-0 lg:top-0 lg:bottom-auto m-4 p-2 lg:p-4 w-screen lg:w-fit flex flex-col lg:flex-row items-center gap-4 bg-stone-900 rounded-xl">
       <Image
         src="/logo.svg"
         alt="Hassan Pizzeria & Kebab Logo"
@@ -57,7 +58,7 @@ export default function AppBar() {
         priority
         draggable="false"
       />
-      <div className="font-bold text-lg uppercase">
+      <div className="flex flex-col lg:flex-row gap-1 w-full lg:w-fit text-sm lg:text-lg font-bold lg:uppercase">
         {menuItems.map((item, index) => {
           return (
             <Link key={index} href={item.href} className={item.classes}>
@@ -70,7 +71,7 @@ export default function AppBar() {
       {businessInfo && (
         <a
           href={`tel:${businessInfo.data.attributes.telephone}`}
-          className="text-2xl lg:mr-8 px-2 lg:px-4 py-2 font-bold text-stone-950 bg-orange-500 hover:bg-orange-700 hover:text-white rounded"
+          className="lg:mr-8 px-2 lg:px-4 py-2 text-2xl font-bold text-stone-950 bg-orange-500 hover:bg-orange-700 hover:text-white rounded"
         >
           <LocalPhoneIcon />
           &nbsp;{businessInfo.data.attributes.telephone}

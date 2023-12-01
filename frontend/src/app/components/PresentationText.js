@@ -23,18 +23,19 @@ export default function PresentationText() {
   if (!businessInfo) {
     return <p>Ładuję...</p>;
   }
+
   return (
-    <div className="p-24 flex bg-orange-500 text-stone-800 font-semibold">
-      <span className="my-16 -rotate-90 lg:text-9xl text-white">
+    <div className="flex flex-col lg:flex-row p-4 lg:p-24 bg-orange-500 text-stone-800 font-semibold">
+      <span className="my-4 lg:my-16 lg:-rotate-90 text-5xl lg:text-9xl text-white">
         kwestią smaku!
       </span>
       <p
-        className="text-xl w-3/4 pl-8 first-letter:text-7xl first-line:font-bold first-line:text-orange-200
-  first-letter:mr-3 first-letter:float-left tracking-wide border-l-4 border-orange-400"
+        className="lg:w-3/4 lg:pl-16 lg:text-xl first-letter:text-2xl lg:first-letter:text-7xl first-line:font-bold first-line:text-orange-200
+  first-letter:mr-3 first-letter:float-left tracking-wide lg:border-l-4 border-orange-400"
       >
         {businessInfo.data.attributes.description}
       </p>
-      <p className="text-xl w-2/4 ml-12">
+      <p className="my-4 lg:my-0 lg:w-2/4 lg:ml-12 lg:text-xl first-line:text-orange-200 lg:first-line:text-stone-800">
         {businessInfo.data.attributes.descriptionPart2}
       </p>
     </div>
