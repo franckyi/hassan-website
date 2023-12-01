@@ -35,7 +35,7 @@ export default function Home() {
   return (
     <>
       <AppBar />
-      <main className="flex min-h-screen flex-col items-center justify-between pb-24 bg-[url('/bg.webp')] bg-top bg-250 lg:bg-100 bg-no-repeat selection:text-orange-500">
+      <main className="flex min-h-screen flex-col items-center justify-between pb-24 bg-[url('/bg.webp')] bg-top bg-300 lg:bg-100 bg-no-repeat selection:text-orange-500">
         <Intro />
         <PresentationText />
         <InteriorImages />
@@ -48,7 +48,7 @@ export default function Home() {
         </Link>
         <Link
           href={`tel:${businessInfo.data.attributes.telephone}`}
-          className="text-2xl text-orange-500 hover:tracking-wider duration-500"
+          className="mb-24 text-2xl text-orange-500 hover:tracking-wider duration-500"
         >
           <LocalPhoneIcon />
           &nbsp; Zamów {businessInfo.data.attributes.telephone}

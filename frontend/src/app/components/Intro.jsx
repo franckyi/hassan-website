@@ -1,8 +1,18 @@
+import Image from "next/image";
 const heroText = "Życie jest...";
 
 export default function Intro() {
   return (
     <section className="relative w-full min-h-screen flex flex-col justify-center items-center">
+      <Image
+        src="/logo.svg"
+        alt="Hassan Pizzeria & Kebab Logo"
+        className="mb-4"
+        width={188}
+        height={50}
+        priority
+        draggable="false"
+      />
       <span className="heroText text-5xl lg:text-9xl font-extrabold text-white">
         {heroText}
       </span>
