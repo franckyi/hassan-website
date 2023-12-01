@@ -10,7 +10,7 @@ import MenuIcon from "@mui/icons-material/Menu";
 import getBusinessInfo from "../services/getBusinessInfo";
 
 const menuItemClasses =
-  "lg:ml-4 px-4 py-2 bg-stone-800 lg:hover:bg-orange-500 lg:hover:text-stone-950 rounded";
+  "lg:ml-4 px-4 py-2 bg-stone-800 lg:hover:bg-orange-500 lg:hover:text-stone-950 rounded-lg";
 
 const menuItems = [
   { text: "Start", href: "/", icon: HomeIcon, classes: menuItemClasses },
@@ -30,7 +30,7 @@ const menuItems = [
 
 export default function AppBar() {
   const [businessInfo, setBusinessInfo] = useState(null);
-  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(true);
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   const fetchBusinessInfo = async () => {
     try {
@@ -55,22 +55,23 @@ export default function AppBar() {
   return (
     <>
       <div
-        className="mobile-menu z-50 fixed bottom-4 right-4 flex items-center justify-center bg-orange-900 hover:bg-orange-800 rounded-full cursor-pointer"
+        className="mobile-menu z-50 fixed top-4 right-4 flex items-center justify-center bg-orange-900 hover:bg-orange-800 rounded-full cursor-pointer"
         onClick={handleMobileClick}
       >
         <MenuIcon />
       </div>
       {isMobileMenuOpen && (
-        <nav className="z-40 fixed bottom-0 lg:top-0 lg:bottom-auto lg:right-0 lg:m-4 p-4 w-screen lg:w-fit flex flex-col lg:flex-row items-center gap-4 bg-stone-900 rounded-xl">
-          <Image
-            src="/logo.svg"
-            alt="Hassan Pizzeria & Kebab Logo"
-            className="hidden lg:block lg:static lg:top-0 lg:left-0 lg:mx-8"
-            width={188}
-            height={50}
-            priority
-            draggable="false"
-          />
+        <nav className="z-40 fixed top-0 lg:right-20 lg:m-4 p-4 w-screen lg:w-fit flex flex-col lg:flex-row items-center gap-4 bg-stone-950/90 lg:rounded-3xl">
+          {businessInfo && (
+            <a
+              href={`tel:${businessInfo.data.attributes.telephone}`}
+              className="mr-auto lg:mr-8 px-8 lg:px-4 py-2 text-2xl font-bold text-stone-950 bg-orange-500 hover:bg-orange-700 hover:text-white rounded-full"
+            >
+              <LocalPhoneIcon />
+              &nbsp;{businessInfo.data.attributes.telephone}
+            </a>
+          )}
+
           {menuItems && (
             <div className="flex gap-1 lg:block lg:w-fit text-sm lg:text-lg">
               {menuItems.map((item, index) => {
@@ -82,15 +83,6 @@ export default function AppBar() {
                 );
               })}
             </div>
-          )}
-          {businessInfo && (
-            <a
-              href={`tel:${businessInfo.data.attributes.telephone}`}
-              className="lg:mr-8 px-2 lg:px-4 py-2 text-2xl font-bold text-stone-950 bg-orange-500 hover:bg-orange-700 hover:text-white rounded"
-            >
-              <LocalPhoneIcon />
-              &nbsp;{businessInfo.data.attributes.telephone}
-            </a>
           )}
         </nav>
       )}
