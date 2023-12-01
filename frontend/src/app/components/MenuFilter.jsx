@@ -9,19 +9,19 @@ export default function MenuFilter() {
   const [filter, setFilter] = useState("pizza");
 
   return (
-    <div className="my-4 w-2/4 text-left">
+    <div className="my-4 lg:w-3/4 p-2 lg:p-0 text-left">
       <h2
-        className="mt-28 mb-8 text-center font-extrabold lg:text-5xl capitalize"
+        className="lg:mt-28 mb-2 lg:mb-8 text-2xl lg:text-5xl font-extrabold text-center capitalize"
         id={heading}
       >
         {heading}
       </h2>
 
-      <div className="text-center">
+      <div className="flex justify-center text-center">
         {menus.map((menu, index) => {
           let classes =
-            "px-4 mb-8 mx-auto uppercase text-stone-500 hover:text-white font-bold";
-          const activeColorClass = " text-white text-xl";
+            "px-4 mb-8 text-stone-500 hover:text-white font-bold uppercase";
+          const activeColorClass = " text-white lg:text-xl";
           let selectedMenu;
 
           function handleClick() {

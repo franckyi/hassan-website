@@ -8,7 +8,7 @@ import CircularIndeterminate from "./CircularIndeterminate";
 const currency = "zł";
 const standardSize = "24 cm";
 const largeSize = "32 cm";
-let standardPriceClasses = "text-xl font-bold";
+let standardPriceClasses = "text-sm lg:text-xl text-right font-bold";
 
 async function getMenuItems(selectedMenu) {
   const res = await fetch(
@@ -42,7 +42,7 @@ export default function Menu({ selectedMenu }) {
   }, []);
 
   return (
-    <div className="p-4 bg-stone-900/80 rounded-xl">
+    <div className="p-4 bg-stone-900/90 rounded-xl">
       {selectedMenu === "pizzas" && (
         <p className="mb-4 text-md text-right">
           <span>{standardSize} </span>
@@ -52,13 +52,14 @@ export default function Menu({ selectedMenu }) {
       )}
       <ul>
         {menuItems.map((item) => (
-          <li className="flex justify-between gap-4 mb-4" key={item.id}>
+          <li className="flex items-center gap-2 lg:gap-4 mb-8" key={item.id}>
             {selectedMenu === "pizzas" && <LocalPizzaOutlinedIcon />}
             {selectedMenu === "kebabs" && <CelebrationTwoToneIcon />}
             {selectedMenu === "dodatkis" && <AddIcon />}
+            {item.attributes.menuOrder && <span className="text-xs">{item.attributes.menuOrder}.</span>}
             <div className="grow">
               <div className="flex">
-                <h4 className="text-xl font-bold uppercase text-orange-500">
+                <h4 className="lg:text-xl font-bold text-orange-500">
                   {item.attributes.name}
                 </h4>
                 {item.attributes.spicy > 0 && (
@@ -86,13 +87,13 @@ export default function Menu({ selectedMenu }) {
                 </span>
                 {selectedMenu === "pizzas" &&
                   item.attributes.priceDiff !== 0 && (
-                    <span className="text-xl text-stone-500">
+                    <span className="lg:text-xl text-stone-500">
                       &nbsp;/&nbsp;
                     </span>
                   )}
                 {selectedMenu === "pizzas" &&
                   item.attributes.priceDiff !== 0 && (
-                    <span className="text-orange-500 text-xl font-bold">
+                    <span className="lg:text-xl text-orange-500 font-bold">
                       {item.attributes.price + item.attributes.priceDiff}&nbsp;
                       <span className="text-xs">{currency}</span>
                     </span>
