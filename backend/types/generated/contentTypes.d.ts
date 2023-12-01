@@ -693,10 +693,10 @@ export interface ApiBusinessInfoBusinessInfo extends Schema.SingleType {
     nip: Attribute.Integer;
     email: Attribute.Email;
     address: Attribute.String;
-    phone: Attribute.Integer;
     description: Attribute.Text;
     descriptionPart2: Attribute.Text;
     descriptionPart3: Attribute.Text;
+    telephone: Attribute.String;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;

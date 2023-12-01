@@ -24,9 +24,6 @@
     "address": {
       "type": "string"
     },
-    "phone": {
-      "type": "integer"
-    },
     "description": {
       "type": "text"
     },
@@ -35,6 +32,9 @@
     },
     "descriptionPart3": {
       "type": "text"
+    },
+    "telephone": {
+      "type": "string"
     }
   }
 }
