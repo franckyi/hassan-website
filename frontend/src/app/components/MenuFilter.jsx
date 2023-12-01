@@ -11,7 +11,7 @@ export default function MenuFilter() {
   return (
     <div className="my-4 w-2/4 text-left">
       <h2
-        className="my-8 text-center font-extrabold lg:text-5xl capitalize"
+        className="mt-28 mb-8 text-center font-extrabold lg:text-5xl capitalize"
         id={heading}
       >
         {heading}
@@ -20,8 +20,8 @@ export default function MenuFilter() {
       <div className="text-center">
         {menus.map((menu, index) => {
           let classes =
-            "px-4 mb-8 mx-auto uppercase text-orange-500 hover:text-white font-bold";
-          const activeColorClass = " text-white";
+            "px-4 mb-8 mx-auto uppercase text-stone-500 hover:text-white font-bold";
+          const activeColorClass = " text-white text-xl";
           let selectedMenu;
 
           function handleClick() {

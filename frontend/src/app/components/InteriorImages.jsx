@@ -2,13 +2,14 @@ import { useState, useEffect } from "react";
 import Image from "next/image";
 import getBusinessInfo from "../services/getBusinessInfo";
 
+const images = [
+  { src: "/local-1.webp" },
+  { src: "/local-2.webp" },
+  { src: "/local-3.webp" },
+];
+
 export default function InteriorImages() {
   const [businessInfo, setBusinessInfo] = useState(null);
-  const images = [
-    { src: "/local-1.webp" },
-    { src: "/local-2.webp" },
-    { src: "/local-3.webp" },
-  ];
 
   const fetchBusinessInfo = async () => {
     try {
@@ -27,16 +28,13 @@ export default function InteriorImages() {
   }, []);
   return (
     <>
-      <h2 className="my-12 font-extrabold lg:text-5xl" id="galeria">
-        Zapraszamy do naszego lokalu
-      </h2>
-      <article className="w-4/4 flex shadow-xl">
+      <article className="w-full flex">
         {images.map((img, index) => {
           return (
             <Image
               key={index}
               src={img.src}
-              className="hover:scale-110 ease-in duration-150"
+              className="w-1/3 hover:scale-110 ease-in duration-150"
               width={400}
               height={200}
               alt="wnętrz restauracji"
@@ -44,8 +42,9 @@ export default function InteriorImages() {
           );
         })}
       </article>
+
       {businessInfo && (
-        <p className="text-xl w-2/4 my-8 text-center">
+        <p className="text-xl w-2/4 my-16 text-center">
           {businessInfo.data.attributes.descriptionPart3}
         </p>
       )}

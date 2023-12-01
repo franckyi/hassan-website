@@ -25,3 +25,28 @@ body {
     )
     rgb(var(--background-start-rgb));
 }
+
+.heroText {
+  text-shadow: 0 0 10px rgba(0, 0, 0, 0.8);
+}
+
+.custom-shape-divider-bottom-1701452007 {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  overflow: hidden;
+  line-height: 0;
+  transform: rotate(180deg);
+}
+
+.custom-shape-divider-bottom-1701452007 svg {
+  position: relative;
+  display: block;
+  width: calc(100% + 1.3px);
+  height: 240px;
+}
+
+.custom-shape-divider-bottom-1701452007 .shape-fill {
+  fill: #f97316;
+}

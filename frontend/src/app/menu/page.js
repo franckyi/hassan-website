@@ -2,8 +2,10 @@
 import { useState, useEffect } from "react";
 import AppBar from "../components/AppBar";
 import getBusinessInfo from "../services/getBusinessInfo";
-import LocalPhoneIcon from "@mui/icons-material/LocalPhone";
 import MenuFilter from "../components/MenuFilter";
+
+const bgImgCredits =
+  '<a href="https://it.freepik.com/foto-gratuito/deliziosa-pizza-napoletana-su-una-tavola_8588233.htm#query=pizza%20background&position=14&from_view=search&track=ais&uuid=1386a8d0-99f1-4e40-a8cf-f34285880cd4">Immagine di pressahotkey</a> su Freepik';
 
 export default function MenuPage() {
   const [businessInfo, setBusinessInfo] = useState(null);
@@ -31,7 +33,7 @@ export default function MenuPage() {
   return (
     <>
       <AppBar />
-      <main className="flex min-h-screen flex-col items-center justify-between p-24 bg-[url('/bg.webp')] bg-cover bg-no-repeat selection:text-orange-500">
+      <main className="flex min-h-screen flex-col items-center justify-between pb-16 bg-[url('/bg-menu.webp')] bg-cover bg-no-repeat selection:text-orange-500">
         <MenuFilter />
       </main>
     </>

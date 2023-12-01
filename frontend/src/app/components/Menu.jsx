@@ -8,6 +8,7 @@ import CircularIndeterminate from "./CircularIndeterminate";
 const currency = "zł";
 const standardSize = "24 cm";
 const largeSize = "32 cm";
+let standardPriceClasses = "text-xl font-bold";
 
 async function getMenuItems(selectedMenu) {
   const res = await fetch(
@@ -41,7 +42,7 @@ export default function Menu({ selectedMenu }) {
   }, []);
 
   return (
-    <div className="p-4 bg-stone-900/90">
+    <div className="p-4 bg-stone-900/80 rounded-xl">
       {selectedMenu === "pizzas" && (
         <p className="mb-4 text-md text-right">
           <span>{standardSize} </span>
@@ -57,7 +58,7 @@ export default function Menu({ selectedMenu }) {
             {selectedMenu === "dodatkis" && <AddIcon />}
             <div className="grow">
               <div className="flex">
-                <h4 className="text-xl font-bold uppercase">
+                <h4 className="text-xl font-bold uppercase text-orange-500">
                   {item.attributes.name}
                 </h4>
                 {item.attributes.spicy > 0 && (
@@ -77,10 +78,10 @@ export default function Menu({ selectedMenu }) {
                   </span>
                 )}
                 <div className="grow border-b-2 border-dotted border-stone-500"></div>
-                <span className="text-xl font-bold">
-                  {item.attributes.price}{" "}
+                <span className={standardPriceClasses}>
+                  {item.attributes.price}
                   {selectedMenu !== "dodatkis" && (
-                    <span className="text-xs">{currency}</span>
+                    <span className="text-xs"> {currency}</span>
                   )}
                 </span>
                 {selectedMenu === "pizzas" &&
