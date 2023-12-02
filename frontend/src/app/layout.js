@@ -20,7 +20,11 @@ export default function RootLayout({ children }) {
           content="Nasza restauracja to miejsce, gdzie tradycja orientalnej kuchni łączy się z niepowtarzalnymi smakami, przywołującymi podróże kulinarne do Bliskiego Wschodu. Zapraszamy do skosztowania naszych wyjątkowych kebabów, które stanowią idealne połączenie tradycji i świeżości."
         ></meta>
       </Head>
-      <body className={FONT.className}>{children}</body>
+      <body
+        className={`${FONT.className} selection:bg-amber-300 selection:text-red-900`}
+      >
+        {children}
+      </body>
     </html>
   );
 }
