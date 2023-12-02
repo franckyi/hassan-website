@@ -7,7 +7,7 @@ export default function Intro() {
       <Image
         src="/logo.svg"
         alt="Hassan Pizzeria & Kebab Logo"
-        className="logo mb-4 lg:w-1/4"
+        className="logo mb-4 lg:w-1/4 p-4 lg:p-12 bg-stone-900 rounded-xl"
         width={188}
         height={50}
         priority
