@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import getBusinessInfo from "../services/getBusinessInfo";
+import CircularIndeterminate from "./CircularIndeterminate";
 
 const errorMessage = "Nie udało się pobierać danych. Spróbuj ponownie później.";
 
