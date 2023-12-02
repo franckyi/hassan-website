@@ -1,7 +1,6 @@
 "use client";
 import { useState, useEffect } from "react";
 import Link from "next/link";
-import Head from "next/head";
 import AppBar from "./components/AppBar";
 import InteriorImages from "./components/InteriorImages";
 import Intro from "./components/Intro";
@@ -33,14 +32,6 @@ export default function Home() {
 
   return (
     <>
-      <Head>
-        <meta name="robots" content="noindex,nofollow" />
-        <title>Hassan - Pizzeria & Kebab</title>
-        <meta
-          name="description"
-          content="Nasza restauracja to miejsce, gdzie tradycja orientalnej kuchni łączy się z niepowtarzalnymi smakami, przywołującymi podróże kulinarne do Bliskiego Wschodu. Zapraszamy do skosztowania naszych wyjątkowych kebabów, które stanowią idealne połączenie tradycji i świeżości."
-        ></meta>
-      </Head>
       <AppBar />
       <main className="overflow-hidden flex min-h-screen flex-col items-center justify-between pb-24 bg-[url('/bg.webp')] bg-top bg-350 lg:bg-contain bg-no-repeat selection:text-orange-500">
         <Intro />
