@@ -30,14 +30,10 @@ export default function Home() {
     fetchBusinessInfo();
   }, []);
 
-  if (!businessInfo) {
-    return <CircularIndeterminate />;
-  }
-
   return (
     <>
       <AppBar />
-      <main className="flex min-h-screen flex-col items-center justify-between pb-24 bg-[url('/bg.webp')] bg-top bg-350 lg:bg-contain bg-no-repeat selection:text-orange-500">
+      <main className="overflow-hidden flex min-h-screen flex-col items-center justify-between pb-24 bg-[url('/bg.webp')] bg-top bg-350 lg:bg-contain bg-no-repeat selection:text-orange-500">
         <Intro />
         <PresentationText />
         <InteriorImages />

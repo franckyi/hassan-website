@@ -31,10 +31,6 @@ export default function MenuPage() {
     fetchBusinessInfo();
   }, []);
 
-  if (!businessInfo) {
-    return <CircularIndeterminate />;
-  }
-
   return (
     <>
       <AppBar />
@@ -42,7 +38,7 @@ export default function MenuPage() {
         <MenuFilter />
         <p className="text-xs text-red-500">{bgImgCredits}</p>
       </main>
-      <Footer businessInfo={businessInfo} />
+      {businessInfo.data && <Footer businessInfo={businessInfo} />}
     </>
   );
 }

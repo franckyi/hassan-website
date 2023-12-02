@@ -26,17 +26,21 @@ async function getMenu(selectedMenu) {
 export default function Menu({ selectedMenu }) {
   const [menuItems, setMenuItems] = useState([]);
   const [pizzaDodatkis, setPizzaDodatkis] = useState([]);
+  const [isLoading, setIsLoading] = useState(false);
 
   if (selectedMenu === "dodatkis") {
     useEffect(() => {
       async function fetchData() {
+        setIsLoading(true);
         try {
           const data = await getMenu(selectedMenu);
           const pizzaDodatkisResponse = await getMenu("pizza-dodatki");
           setMenuItems(data.data);
           setPizzaDodatkis(pizzaDodatkisResponse.data);
+          setIsLoading(false);
         } catch (error) {
           console.error("Error fetching data:", error);
+          setIsLoading(false);
         }
       }
 
@@ -45,11 +49,14 @@ export default function Menu({ selectedMenu }) {
   } else {
     useEffect(() => {
       async function fetchData() {
+        setIsLoading(true);
         try {
           const data = await getMenu(selectedMenu);
           setMenuItems(data.data);
+          setIsLoading(false);
         } catch (error) {
           console.error("Error fetching data:", error);
+          setIsLoading(false);
         }
       }
 
@@ -66,12 +73,15 @@ export default function Menu({ selectedMenu }) {
           <span className="text-orange-500">{largeSize}</span>
         </p>
       )}
+
+      {/* {isLoading && <CircularIndeterminate />} */}
+
       {pizzaDodatkis.attributes && (
         <>
-          <h4 className="text-orange-500 font-bold">
+          <h4 className="text-sm lg:text-xl text-orange-500 font-bold">
             {pizzaDodatkis.attributes.name}
           </h4>
-          <div className="flex gap-4">
+          <div className="flex gap-4 text-sm lg:text-xl">
             <span className="block">
               <span className="text-orange-500">Mała </span>
               {pizzaDodatkis.attributes.priceSmall + " " + currency}
@@ -88,6 +98,8 @@ export default function Menu({ selectedMenu }) {
         </>
       )}
       <ul className="mt-8">
+        {isLoading && <CircularIndeterminate />}
+
         {menuItems &&
           menuItems.map((item) => (
             <li className="flex items-center gap-2 lg:gap-4 mb-8" key={item.id}>
