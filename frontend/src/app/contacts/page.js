@@ -1,7 +1,6 @@
 "use client";
 import { useState, useEffect } from "react";
 import AppBar from "../components/AppBar";
-import CircularIndeterminate from "../components/CircularIndeterminate";
 import getBusinessInfo from "../services/getBusinessInfo";
 
 const bgImgCredits = (

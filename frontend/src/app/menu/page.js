@@ -3,7 +3,6 @@ import { useState, useEffect } from "react";
 import AppBar from "../components/AppBar";
 import getBusinessInfo from "../services/getBusinessInfo";
 import MenuFilter from "../components/MenuFilter";
-import CircularIndeterminate from "../components/CircularIndeterminate";
 import Footer from "../components/Footer";
 
 const bgImgCredits = (
