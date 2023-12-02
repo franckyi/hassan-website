@@ -5,6 +5,8 @@ import AppBar from "./components/AppBar";
 import InteriorImages from "./components/InteriorImages";
 import Intro from "./components/Intro";
 import PresentationText from "./components/PresentationText";
+import Footer from "./components/Footer";
+import CircularIndeterminate from "./components/CircularIndeterminate";
 import getBusinessInfo from "./services/getBusinessInfo";
 import MenuBookOutlinedIcon from "@mui/icons-material/MenuBookOutlined";
 import LocalPhoneIcon from "@mui/icons-material/LocalPhone";
@@ -29,13 +31,13 @@ export default function Home() {
   }, []);
 
   if (!businessInfo) {
-    return <p>Ładuję...</p>;
+    return <CircularIndeterminate />;
   }
 
   return (
     <>
       <AppBar />
-      <main className="flex min-h-screen flex-col items-center justify-between pb-24 bg-[url('/bg.webp')] bg-top bg-300 lg:bg-100 bg-no-repeat selection:text-orange-500">
+      <main className="flex min-h-screen flex-col items-center justify-between pb-24 bg-[url('/bg.webp')] bg-top bg-350 lg:bg-contain bg-no-repeat selection:text-orange-500">
         <Intro />
         <PresentationText />
         <InteriorImages />
@@ -46,14 +48,18 @@ export default function Home() {
           <MenuBookOutlinedIcon />
           &nbsp; Sprawdź nasz menu
         </Link>
-        <Link
-          href={`tel:${businessInfo.data.attributes.telephone}`}
-          className="mb-24 text-2xl text-orange-500 hover:tracking-wider duration-500"
-        >
-          <LocalPhoneIcon />
-          &nbsp; Zamów {businessInfo.data.attributes.telephone}
-        </Link>
+        {!businessInfo && <CircularIndeterminate />}
+        {businessInfo && (
+          <Link
+            href={`tel:${businessInfo.data.attributes.telephone}`}
+            className="text-2xl text-orange-500 hover:tracking-wider duration-500"
+          >
+            <LocalPhoneIcon />
+            &nbsp; Zamów {businessInfo.data.attributes.telephone}
+          </Link>
+        )}
       </main>
+      <Footer businessInfo={businessInfo} />
     </>
   );
 }

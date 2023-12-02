@@ -26,7 +26,7 @@ export default function PresentationText() {
 
   return (
     <div className="flex flex-col lg:flex-row p-4 lg:p-24 bg-orange-500 text-stone-800 font-semibold">
-      <span className="my-4 lg:my-16 lg:-rotate-90 text-5xl lg:text-9xl text-white">
+      <span className="my-4 lg:my-16 lg:-rotate-90 hover:rotate-0 duration-500 text-5xl lg:text-9xl text-white">
         kwestią smaku!
       </span>
       <p

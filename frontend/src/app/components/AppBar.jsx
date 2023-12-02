@@ -1,6 +1,5 @@
 "use client";
 import { useState, useEffect } from "react";
-import Image from "next/image";
 import Link from "next/link";
 import LocalPhoneIcon from "@mui/icons-material/LocalPhone";
 import MyLocationOutlinedIcon from "@mui/icons-material/MyLocationOutlined";
@@ -10,7 +9,7 @@ import MenuIcon from "@mui/icons-material/Menu";
 import getBusinessInfo from "../services/getBusinessInfo";
 
 const menuItemClasses =
-  "lg:ml-4 px-4 py-2 bg-stone-800 lg:hover:bg-orange-500 lg:hover:text-stone-950 rounded-lg";
+  "lg:ml-4 px-4 py-2 flex flex-col items-center bg-stone-800 lg:hover:bg-orange-500 lg:hover:text-stone-950 rounded-lg";
 
 const menuItems = [
   { text: "Start", href: "/", icon: HomeIcon, classes: menuItemClasses },
@@ -65,7 +64,7 @@ export default function AppBar() {
           {businessInfo && (
             <a
               href={`tel:${businessInfo.data.attributes.telephone}`}
-              className="mr-auto lg:mr-8 px-8 lg:px-4 py-2 text-2xl font-bold text-stone-950 bg-orange-500 hover:bg-orange-700 hover:text-white rounded-full"
+              className="mr-auto px-8 lg:px-4 py-2 text-2xl font-bold text-stone-950 bg-orange-500 hover:bg-orange-700 hover:text-white rounded-full"
             >
               <LocalPhoneIcon />
               &nbsp;{businessInfo.data.attributes.telephone}
@@ -73,7 +72,7 @@ export default function AppBar() {
           )}
 
           {menuItems && (
-            <div className="flex gap-1 lg:block lg:w-fit text-sm lg:text-lg">
+            <div className="flex gap-2 text-sm lg:text-lg">
               {menuItems.map((item, index) => {
                 return (
                   <Link key={index} href={item.href} className={item.classes}>

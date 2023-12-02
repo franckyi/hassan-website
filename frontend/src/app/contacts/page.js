@@ -1,6 +1,7 @@
 "use client";
 import { useState, useEffect } from "react";
 import AppBar from "../components/AppBar";
+import CircularIndeterminate from "../components/CircularIndeterminate";
 import getBusinessInfo from "../services/getBusinessInfo";
 
 const bgImgCredits =
@@ -27,7 +28,7 @@ export default function Contacts() {
   }, []);
 
   if (!businessInfo) {
-    return <p>Ładuję...</p>;
+    return <CircularIndeterminate />;
   }
 
   return (
@@ -38,6 +39,7 @@ export default function Contacts() {
           {heading}
         </h2>
         <p className="ml-auto w-2/4 mr-4 lg:mr-0 text-3xl font-extrabold text-orange-500">
+          {!businessInfo && <CircularIndeterminate />}
           {businessInfo.data.attributes.shortName}
         </p>
         <p className="ml-auto w-2/4 mr-4 lg:mr-0">

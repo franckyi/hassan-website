@@ -1,9 +1,10 @@
 "use client";
 import { useState } from "react";
 import Menu from "./Menu";
+import CircularIndeterminate from "./CircularIndeterminate";
 
 const menus = ["pizza", "kebab", "dodatki"];
-const heading = "menu";
+const heading = "Menu";
 
 export default function MenuFilter() {
   const [filter, setFilter] = useState("pizza");
@@ -11,7 +12,7 @@ export default function MenuFilter() {
   return (
     <div className="my-4 lg:w-3/4 p-2 lg:p-0 text-left">
       <h2
-        className="lg:mt-28 mb-2 lg:mb-8 text-2xl lg:text-5xl font-extrabold text-center capitalize"
+        className="lg:mt-28 mb-2 lg:mb-8 text-2xl lg:text-5xl font-extrabold text-center"
         id={heading}
       >
         {heading}

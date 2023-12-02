@@ -11,7 +11,7 @@ module.exports = {
       cover: "cover",
       contain: "contain",
       100: "100%",
-      300: "300%",
+      350: "350%",
     },
     extend: {
       backgroundImage: {
