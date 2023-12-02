@@ -1,11 +1,10 @@
 {
   "kind": "singleType",
-  "collectionName": "pizza_addons",
+  "collectionName": "pizza_dodatkis",
   "info": {
-    "singularName": "pizza-addon",
-    "pluralName": "pizza-addons",
-    "displayName": "Pizza Addons",
-    "description": ""
+    "singularName": "pizza-dodatki",
+    "pluralName": "pizza-dodatkis",
+    "displayName": "Pizza dodatki"
   },
   "options": {
     "draftAndPublish": true
@@ -18,10 +17,10 @@
     "priceSmall": {
       "type": "integer"
     },
-    "priceBig": {
+    "priceMedium": {
       "type": "integer"
     },
-    "priceMega": {
+    "priceBig": {
       "type": "integer"
     }
   }

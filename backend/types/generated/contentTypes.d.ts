@@ -855,13 +855,12 @@ export interface ApiPizzaPizza extends Schema.CollectionType {
   };
 }
 
-export interface ApiPizzaAddonPizzaAddon extends Schema.SingleType {
-  collectionName: 'pizza_addons';
+export interface ApiPizzaDodatkiPizzaDodatki extends Schema.SingleType {
+  collectionName: 'pizza_dodatkis';
   info: {
-    singularName: 'pizza-addon';
-    pluralName: 'pizza-addons';
-    displayName: 'Pizza Addons';
-    description: '';
+    singularName: 'pizza-dodatki';
+    pluralName: 'pizza-dodatkis';
+    displayName: 'Pizza dodatki';
   };
   options: {
     draftAndPublish: true;
@@ -869,19 +868,19 @@ export interface ApiPizzaAddonPizzaAddon extends Schema.SingleType {
   attributes: {
     name: Attribute.String;
     priceSmall: Attribute.Integer;
+    priceMedium: Attribute.Integer;
     priceBig: Attribute.Integer;
-    priceMega: Attribute.Integer;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
     createdBy: Attribute.Relation<
-      'api::pizza-addon.pizza-addon',
+      'api::pizza-dodatki.pizza-dodatki',
       'oneToOne',
       'admin::user'
     > &
       Attribute.Private;
     updatedBy: Attribute.Relation<
-      'api::pizza-addon.pizza-addon',
+      'api::pizza-dodatki.pizza-dodatki',
       'oneToOne',
       'admin::user'
     > &
@@ -941,7 +940,7 @@ declare module '@strapi/types' {
       'api::dodatki.dodatki': ApiDodatkiDodatki;
       'api::kebab.kebab': ApiKebabKebab;
       'api::pizza.pizza': ApiPizzaPizza;
-      'api::pizza-addon.pizza-addon': ApiPizzaAddonPizzaAddon;
+      'api::pizza-dodatki.pizza-dodatki': ApiPizzaDodatkiPizzaDodatki;
       'api::pizza-size.pizza-size': ApiPizzaSizePizzaSize;
     }
   }
