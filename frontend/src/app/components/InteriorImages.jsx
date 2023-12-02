@@ -34,10 +34,11 @@ export default function InteriorImages() {
             <Image
               key={index}
               src={img.src}
-              className="w-3/3 lg:w-1/3 hover:scale-110 ease-in duration-150"
+              className="w-full lg:w-1/3 lg:hover:scale-110 lg:ease-in lg:duration-150"
               width={400}
               height={200}
               alt="wnętrz restauracji"
+              draggable="false"
             />
           );
         })}
