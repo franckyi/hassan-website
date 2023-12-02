@@ -38,7 +38,9 @@ export default function MenuPage() {
         <MenuFilter />
         <p className="text-xs text-red-500">{bgImgCredits}</p>
       </main>
-      {businessInfo.data && <Footer businessInfo={businessInfo} />}
+      {businessInfo && businessInfo.data && (
+        <Footer businessInfo={businessInfo} />
+      )}
     </>
   );
 }
