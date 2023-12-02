@@ -4,8 +4,11 @@ import AppBar from "../components/AppBar";
 import CircularIndeterminate from "../components/CircularIndeterminate";
 import getBusinessInfo from "../services/getBusinessInfo";
 
-const bgImgCredits =
-  '<a href="https://it.freepik.com/foto-gratuito/tempo-di-pizza-gustosa-pizza-tradizionale-fatta-in-casa-ricetta-italiana_10213112.htm#query=pizza%20background&position=2&from_view=search&track=ais&uuid=1386a8d0-99f1-4e40-a8cf-f34285880cd4">Immagine di Racool_studio</a> su Freepik';
+const bgImgCredits = (
+  <a href="https://it.freepik.com/foto-gratuito/tempo-di-pizza-gustosa-pizza-tradizionale-fatta-in-casa-ricetta-italiana_10213112.htm#query=pizza%20background&position=2&from_view=search&track=ais&uuid=1386a8d0-99f1-4e40-a8cf-f34285880cd4">
+    Photo by Racool_studio
+  </a>
+);
 const heading = "Jak dojechać";
 
 export default function Contacts() {
@@ -53,6 +56,7 @@ export default function Contacts() {
           referrerpolicy="no-referrer-when-downgrade"
         ></iframe>
       </main>
+      <p className="text-xs text-stone-800">{bgImgCredits}</p>
     </>
   );
 }
