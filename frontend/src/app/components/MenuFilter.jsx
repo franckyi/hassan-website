@@ -1,7 +1,6 @@
 "use client";
 import { useState } from "react";
 import Menu from "./Menu";
-import CircularIndeterminate from "./CircularIndeterminate";
 
 const menus = ["pizza", "kebab", "dodatki"];
 const heading = "Menu";

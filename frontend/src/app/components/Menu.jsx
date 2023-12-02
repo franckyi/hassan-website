@@ -74,8 +74,6 @@ export default function Menu({ selectedMenu }) {
         </p>
       )}
 
-      {/* {isLoading && <CircularIndeterminate />} */}
-
       {pizzaDodatkis.attributes && (
         <>
           <h4 className="text-sm lg:text-xl text-orange-500 font-bold">
