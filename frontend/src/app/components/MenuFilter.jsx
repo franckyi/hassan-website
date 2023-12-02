@@ -10,7 +10,7 @@ export default function MenuFilter() {
   const [filter, setFilter] = useState("pizza");
 
   return (
-    <div className="my-4 lg:w-3/4 p-2 lg:p-0 text-left">
+    <div className="my-4 md:w-3/4 p-2 lg:p-0 text-left">
       <h2
         className="lg:mt-28 mb-2 lg:mb-8 text-2xl lg:text-5xl font-extrabold text-center"
         id={heading}

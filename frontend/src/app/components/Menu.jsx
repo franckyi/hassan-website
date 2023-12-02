@@ -35,8 +35,6 @@ export default function Menu({ selectedMenu }) {
           const pizzaDodatkisResponse = await getMenu("pizza-dodatki");
           setMenuItems(data.data);
           setPizzaDodatkis(pizzaDodatkisResponse.data);
-          // console.log(pizzaDodatkis.data.attributes.name);
-          // console.log(pizzaDodatkisResponse.data.attributes.name);
         } catch (error) {
           console.error("Error fetching data:", error);
         }

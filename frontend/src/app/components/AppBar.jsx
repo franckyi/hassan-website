@@ -47,7 +47,7 @@ export default function AppBar() {
     fetchBusinessInfo();
   }, []);
 
-  function handleMobileClick() {
+  function handleNavClick() {
     setIsMobileMenuOpen(!isMobileMenuOpen);
   }
 
@@ -55,7 +55,7 @@ export default function AppBar() {
     <>
       <div
         className="mobile-menu z-50 fixed top-4 right-4 flex items-center justify-center bg-orange-900 hover:bg-orange-800 rounded-full cursor-pointer"
-        onClick={handleMobileClick}
+        onClick={handleNavClick}
       >
         <MenuIcon />
       </div>
@@ -64,7 +64,7 @@ export default function AppBar() {
           {businessInfo && (
             <a
               href={`tel:${businessInfo.data.attributes.telephone}`}
-              className="mr-auto px-8 lg:px-4 py-2 text-2xl font-bold text-stone-950 bg-orange-500 hover:bg-orange-700 hover:text-white rounded-full"
+              className="mr-auto sm:mx-auto px-8 lg:px-4 py-2 text-2xl font-bold text-stone-950 bg-orange-500 hover:bg-orange-700 hover:text-white rounded-full"
             >
               <LocalPhoneIcon />
               &nbsp;{businessInfo.data.attributes.telephone}
