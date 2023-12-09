@@ -14,7 +14,7 @@ let standardPriceClasses = "text-sm lg:text-xl text-right font-bold";
 async function getMenu(selectedMenu) {
   const menuPath = selectedMenu === "dodatkis" ? "addons" : selectedMenu;
   const res = await fetch(
-    `http://panel.kebab-hassan.pl/wp-json/wp/v2/${menuPath}`
+    `http://panel.kebab-hassan.pl/wp-json/wp/v2/${menuPath}?per_page=100`
   );
 
   if (!res.ok) {
