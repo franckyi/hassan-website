@@ -63,11 +63,11 @@ export default function AppBar() {
         <nav className="z-40 fixed top-0 lg:right-20 lg:m-4 p-4 w-screen lg:w-fit flex flex-col lg:flex-row items-center gap-4 bg-stone-950/90 lg:rounded-3xl">
           {businessInfo && (
             <a
-              href={`tel:${businessInfo.data.attributes.telephone}`}
+              href={`tel:${businessInfo.acf.telephone}`}
               className="mr-auto sm:mx-auto px-8 lg:px-4 py-2 text-2xl font-bold text-stone-950 bg-orange-500 hover:bg-orange-700 hover:text-white rounded-full"
             >
               <LocalPhoneIcon />
-              &nbsp;{businessInfo.data.attributes.telephone}
+              &nbsp;{businessInfo.acf.telephone}
             </a>
           )}
 

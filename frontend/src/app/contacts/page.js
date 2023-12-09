@@ -36,14 +36,14 @@ export default function Contacts() {
         <h2 className="mt-16 lg:mt-28 my-8 mr-4 lg:mr-0 font-extrabold text-2xl lg:text-5xl">
           {heading}
         </h2>
-        {businessInfo && businessInfo.data && (
+        {businessInfo && businessInfo.acf && (
           <p className="ml-auto w-2/4 mr-4 lg:mr-0 text-3xl font-extrabold text-orange-500">
-            {businessInfo.data.attributes.shortName}
+            {businessInfo.acf.shortName}
           </p>
         )}
-        {businessInfo && businessInfo.data && (
+        {businessInfo && businessInfo.acf && (
           <p className="ml-auto w-2/4 mr-4 lg:mr-0">
-            {businessInfo.data.attributes.address}
+            {businessInfo.acf.address}
           </p>
         )}
         <iframe

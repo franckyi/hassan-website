@@ -32,17 +32,17 @@ export default function PresentationText() {
 
       {isLoading && <CircularIndeterminate />}
 
-      {businessInfo && businessInfo.data && (
+      {businessInfo && businessInfo.acf && (
         <p
           className="lg:w-3/4 lg:pl-16 lg:text-xl first-letter:text-2xl lg:first-letter:text-7xl first-line:font-bold first-line:text-orange-200
   first-letter:mr-3 first-letter:float-left tracking-wide lg:border-l-4 border-orange-400"
         >
-          {businessInfo.data.attributes.description}
+          {businessInfo.acf.description}
         </p>
       )}
-      {businessInfo && businessInfo.data && (
+      {businessInfo && businessInfo.acf && (
         <p className="my-4 lg:my-0 lg:w-2/4 lg:ml-12 lg:text-xl first-line:text-orange-200 lg:first-line:text-stone-800">
-          {businessInfo.data.attributes.descriptionPart2}
+          {businessInfo.acf.descriptionPart2}
         </p>
       )}
     </div>

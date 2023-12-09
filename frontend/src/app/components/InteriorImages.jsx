@@ -46,7 +46,7 @@ export default function InteriorImages() {
 
       {businessInfo && (
         <p className="text-xl lg:w-2/4 mx-8 my-16 text-center">
-          {businessInfo.data.attributes.descriptionPart3}
+          {businessInfo.acf.descriptionPart3}
         </p>
       )}
     </>

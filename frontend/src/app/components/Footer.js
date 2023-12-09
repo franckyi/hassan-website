@@ -12,9 +12,7 @@ export default function Footer(props) {
         priority
         draggable="false"
       />
-      {props.businessInfo && (
-        <p>{props.businessInfo.data.attributes.address}</p>
-      )}
+      {props.businessInfo && <p>{props.businessInfo.acf.address}</p>}
     </footer>
   );
 }

@@ -47,11 +47,11 @@ export default function Home() {
         {!businessInfo && <CircularIndeterminate />}
         {businessInfo && (
           <Link
-            href={`tel:${businessInfo.data.attributes.telephone}`}
+            href={`tel:${businessInfo.acf.telephone}`}
             className="text-2xl text-orange-500 hover:tracking-wider duration-500"
           >
             <LocalPhoneIcon />
-            &nbsp; Zamów {businessInfo.data.attributes.telephone}
+            &nbsp; Zamów {businessInfo.acf.telephone}
           </Link>
         )}
       </main>
