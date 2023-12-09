@@ -25,7 +25,6 @@ async function getMenu(selectedMenu) {
 
 export default function Menu({ selectedMenu }) {
   const [menuItems, setMenuItems] = useState([]);
-  const [dodatkis, setDodatkis] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
 
   if (selectedMenu === "dodatkis") {
@@ -35,11 +34,8 @@ export default function Menu({ selectedMenu }) {
         setIsLoading(true);
         try {
           const data = await getMenu(selectedMenu);
-          const dodatkisResponse = await getMenu("addons");
           setMenuItems(data);
-          setDodatkis(dodatkisResponse);
           setIsLoading(false);
-          console.log("data.acf: ", data);
         } catch (error) {
           console.error("Error fetching data:", error);
           setIsLoading(false);
@@ -56,7 +52,6 @@ export default function Menu({ selectedMenu }) {
           const data = await getMenu(selectedMenu);
           setMenuItems(data);
           setIsLoading(false);
-          console.log("data: ", data);
         } catch (error) {
           console.error("Error fetching data:", error);
           setIsLoading(false);
@@ -76,29 +71,6 @@ export default function Menu({ selectedMenu }) {
           <span className="text-orange-500">{largeSize}</span>
         </p>
       )}
-
-      {/* {dodatkis.acf && (
-        <>
-          <h4 className="text-sm lg:text-xl text-orange-500 font-bold">
-            {dodatkis.acf.name}
-          </h4>
-          test
-          <div className="flex gap-4 text-sm lg:text-xl">
-            <span className="block">
-              <span className="text-orange-500">Mała </span>
-              {dodatkis.acf.priceS + " " + currency}
-            </span>
-            <span className="block">
-              <span className="text-orange-500">Duża </span>
-              {dodatkis.acf.priceM + " " + currency}
-            </span>
-            <span className="block">
-              <span className="text-orange-500">Mega </span>
-              {dodatkis.acf.priceL + " " + currency}
-            </span>
-          </div>
-        </>
-      )} */}
 
       <ul className="mt-8">
         {isLoading && <CircularIndeterminate />}
