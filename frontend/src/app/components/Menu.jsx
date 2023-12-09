@@ -33,7 +33,13 @@ export default function Menu({ selectedMenu }) {
       setIsLoading(true);
       try {
         const data = await getMenu(selectedMenu);
-        setMenuItems(data);
+        const sortedMenuItems = data.sort((a, b) =>
+          a.acf.menuOrder && b.acf.menuOrder
+            ? a.acf.menuOrder - b.acf.menuOrder
+            : 0
+        );
+
+        setMenuItems(sortedMenuItems);
         setIsLoading(false);
       } catch (error) {
         console.error("Error fetching data:", error);
