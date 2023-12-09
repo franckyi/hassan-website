@@ -6,14 +6,15 @@ import AddIcon from "@mui/icons-material/Add";
 import CircularIndeterminate from "./CircularIndeterminate";
 
 const currency = "zł";
-const standardSize = "24 cm";
-const largeSize = "32 cm";
+const standardSize = "standard 24 cm";
+const largeSize = "duży 32 cm";
 const errorMessage = "nie udało się pobierać danych... Spróbuj poźniej.";
 let standardPriceClasses = "text-sm lg:text-xl text-right font-bold";
 
 async function getMenu(selectedMenu) {
+  const menuPath = selectedMenu === "dodatkis" ? "addons" : selectedMenu;
   const res = await fetch(
-    `http://panel.kebab-hassan.pl/wp-json/wp/v2/${selectedMenu}`
+    `http://panel.kebab-hassan.pl/wp-json/wp/v2/${menuPath}`
   );
 
   if (!res.ok) {
@@ -27,48 +28,33 @@ export default function Menu({ selectedMenu }) {
   const [menuItems, setMenuItems] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
 
-  if (selectedMenu === "dodatkis") {
-    selectedMenu = "addons";
-    useEffect(() => {
-      async function fetchData() {
-        setIsLoading(true);
-        try {
-          const data = await getMenu(selectedMenu);
-          setMenuItems(data);
-          setIsLoading(false);
-        } catch (error) {
-          console.error("Error fetching data:", error);
-          setIsLoading(false);
-        }
+  useEffect(() => {
+    async function fetchData() {
+      setIsLoading(true);
+      try {
+        const data = await getMenu(selectedMenu);
+        setMenuItems(data);
+        setIsLoading(false);
+      } catch (error) {
+        console.error("Error fetching data:", error);
+        setIsLoading(false);
       }
+    }
 
-      fetchData();
-    }, []);
-  } else {
-    useEffect(() => {
-      async function fetchData() {
-        setIsLoading(true);
-        try {
-          const data = await getMenu(selectedMenu);
-          setMenuItems(data);
-          setIsLoading(false);
-        } catch (error) {
-          console.error("Error fetching data:", error);
-          setIsLoading(false);
-        }
-      }
-
-      fetchData();
-    }, []);
-  }
+    fetchData();
+  }, [selectedMenu]);
 
   return (
     <div className="p-4 bg-stone-900/90 rounded-xl">
       {selectedMenu === "pizzas" && (
         <p className="mb-4 text-md text-right">
-          <span>{standardSize} </span>
+          <span className="mx-2 py-2 px-4 bg-orange-500 text-white rounded-full italic">
+            {standardSize}{" "}
+          </span>
           <span className="text-stone-500"> / </span>
-          <span className="text-orange-500">{largeSize}</span>
+          <span className="mx-2 py-2 px-4 bg-stone-300 text-stone-900 rounded-full italic">
+            {largeSize}
+          </span>
         </p>
       )}
 
@@ -93,7 +79,10 @@ export default function Menu({ selectedMenu }) {
                     <span className="text-orange-500">
                       &nbsp;
                       {Array.from({ length: item.acf.spicy }, (_, index) => (
-                        <LocalFireDepartmentRoundedIcon key={index} />
+                        <LocalFireDepartmentRoundedIcon
+                          key={index}
+                          className="text-red-500"
+                        />
                       ))}
                     </span>
                   )}
