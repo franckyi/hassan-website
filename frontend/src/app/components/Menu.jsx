@@ -13,7 +13,7 @@ let standardPriceClasses = "text-sm lg:text-xl text-right font-bold";
 
 async function getMenu(selectedMenu) {
   const res = await fetch(
-    `http://localhost/hassan-panel/wp-json/wp/v2/${selectedMenu}`
+    `http://panel.kebab-hassan.pl/wp-json/wp/v2/${selectedMenu}`
   );
 
   if (!res.ok) {
