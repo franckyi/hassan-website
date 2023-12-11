@@ -82,7 +82,7 @@ export default function Menu({ selectedMenu }) {
                     {item.acf.name}
                   </h4>
                   {item.acf.spicy > 0 && (
-                    <span className="text-orange-500">
+                    <span className="text-orange-500 whitespace-nowrap">
                       &nbsp;
                       {Array.from({ length: item.acf.spicy }, (_, index) => (
                         <LocalFireDepartmentRoundedIcon
@@ -100,10 +100,10 @@ export default function Menu({ selectedMenu }) {
                   <div className="grow border-b-2 border-dotted border-stone-500"></div>
                   {item.acf.priceS && (
                     <div
-                      className={`${standardPriceClasses} bg-stone-700 rounded-full mx-2 px-4`}
+                      className={`${standardPriceClasses} flex items-center gap-1 lg:block bg-stone-700 rounded-full mx-1 px-2 lg:mx-2 mx-1 px-2 lg:px-4 whitespace-nowrap`}
                     >
                       {selectedMenu === "addons" && (
-                        <span className="text-xs">mały </span>
+                        <span className="text-xs italic">mały </span>
                       )}
                       {item.acf.priceS}
                       <span className="text-xs"> {currency}</span>
@@ -111,7 +111,7 @@ export default function Menu({ selectedMenu }) {
                   )}
                   {item.acf.priceM && (
                     <div
-                      className={`${standardPriceClasses} bg-orange-500 rounded-full mx-2 px-4`}
+                      className={`${standardPriceClasses} flex items-center gap-1 lg:block bg-orange-500 rounded-full mx-1 px-2 lg:mx-2 mx-1 px-2 lg:px-4 whitespace-nowrap`}
                     >
                       {item.acf.priceM}
                       <span className="text-xs"> {currency}</span>
@@ -119,10 +119,10 @@ export default function Menu({ selectedMenu }) {
                   )}
                   {item.acf.priceL && (
                     <div
-                      className={`${standardPriceClasses} bg-stone-300 text-stone-900 rounded-full mx-2 px-4`}
+                      className={`${standardPriceClasses} flex items-center gap-1 lg:block bg-stone-300 text-stone-900 rounded-full mx-1 px-2 lg:mx-2 mx-1 px-2 lg:px-4 whitespace-nowrap`}
                     >
                       {selectedMenu !== "kebabs" && (
-                        <span className="text-xs">duży </span>
+                        <span className="text-xs italic">duży </span>
                       )}
                       {item.acf.priceL}
                       <span className="text-xs"> {currency}</span>
