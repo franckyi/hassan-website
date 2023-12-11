@@ -76,7 +76,7 @@ export default function Menu({ selectedMenu }) {
               {selectedMenu === "kebabs" && (
                 <CelebrationTwoToneIcon className="text-stone-400" />
               )}
-              {selectedMenu === "addons" && (
+              {selectedMenu === "dodatkis" && (
                 <AddIcon className="text-stone-400" />
               )}
               {item.acf.menuOrder && (
