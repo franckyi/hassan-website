@@ -71,16 +71,16 @@ export default function Menu({ selectedMenu }) {
           menuItems.map((item) => (
             <li className="flex items-center gap-2 lg:gap-4 mb-8" key={item.id}>
               {selectedMenu === "pizzas" && (
-                <LocalPizzaOutlinedIcon className="text-stone-300" />
+                <LocalPizzaOutlinedIcon className="text-stone-400" />
               )}
               {selectedMenu === "kebabs" && (
-                <CelebrationTwoToneIcon className="text-stone-300" />
+                <CelebrationTwoToneIcon className="text-stone-400" />
               )}
               {selectedMenu === "addons" && (
-                <AddIcon className="text-stone-300" />
+                <AddIcon className="text-stone-400" />
               )}
               {item.acf.menuOrder && (
-                <span className="text-xs text-stone-300">
+                <span className="text-xs text-white">
                   {item.acf.menuOrder}.
                 </span>
               )}

@@ -78,7 +78,7 @@ export default function AppBar() {
                   <Link
                     key={index}
                     href={item.href}
-                    className={`${item.classes} text-stone-300`}
+                    className={`${item.classes} text-white`}
                   >
                     <item.icon />
                     &nbsp;{item.text}
