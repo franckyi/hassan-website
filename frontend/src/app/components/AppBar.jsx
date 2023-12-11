@@ -54,7 +54,7 @@ export default function AppBar() {
   return (
     <>
       <div
-        className="mobile-menu z-50 fixed top-4 right-4 flex items-center justify-center bg-orange-900 hover:bg-orange-800 rounded-full cursor-pointer"
+        className="mobile-menu z-50 fixed top-4 right-4 flex items-center justify-center bg-orange-900 hover:bg-orange-800 text-stone-300 rounded-full cursor-pointer"
         onClick={handleNavClick}
       >
         <MenuIcon />
@@ -75,7 +75,11 @@ export default function AppBar() {
             <div className="flex gap-2 text-sm lg:text-lg">
               {menuItems.map((item, index) => {
                 return (
-                  <Link key={index} href={item.href} className={item.classes}>
+                  <Link
+                    key={index}
+                    href={item.href}
+                    className={`${item.classes} text-stone-300`}
+                  >
                     <item.icon />
                     &nbsp;{item.text}
                   </Link>

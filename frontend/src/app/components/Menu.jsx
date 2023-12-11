@@ -80,7 +80,9 @@ export default function Menu({ selectedMenu }) {
                 <AddIcon className="text-stone-300" />
               )}
               {item.acf.menuOrder && (
-                <span className="text-xs">{item.acf.menuOrder}.</span>
+                <span className="text-xs text-stone-300">
+                  {item.acf.menuOrder}.
+                </span>
               )}
               <div className="grow">
                 <div className="flex">
