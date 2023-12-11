@@ -16,7 +16,7 @@ const businessInfoFallback = {
 
 async function getBusinessInfo() {
   const res = await fetch(
-    "https://panel.kebab-hassan.pl/wp-json/wp/v2/stores/42"
+    "https://panel.kebab-hassan.pl/wp-json/wp/v2/stores/101"
   );
 
   if (!res.ok) {
