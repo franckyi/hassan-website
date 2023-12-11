@@ -7,7 +7,6 @@ export const metadata = {
   title: "Hassan - Pizzeria & Kebab w Starogardzie Gdańskim",
   description:
     "Nasza restauracja to miejsce, gdzie tradycja orientalnej kuchni łączy się z niepowtarzalnymi smakami, przywołującymi podróże kulinarne do Bliskiego Wschodu. Zapraszamy do skosztowania naszych wyjątkowych kebabów, które stanowią idealne połączenie tradycji i świeżości.",
-  robots: "noindex, nofollow",
 };
 
 export default function RootLayout({ children }) {
