@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import LocalPizzaOutlinedIcon from "@mui/icons-material/LocalPizzaOutlined";
 import LocalFireDepartmentRoundedIcon from "@mui/icons-material/LocalFireDepartmentRounded";
 import CelebrationTwoToneIcon from "@mui/icons-material/CelebrationTwoTone";
-import AddIcon from "@mui/icons-material/Add";
+import StarOutlineIcon from "@mui/icons-material/StarOutline";
 import CircularIndeterminate from "./CircularIndeterminate";
 
 const currency = "zł";
@@ -77,7 +77,7 @@ export default function Menu({ selectedMenu }) {
                 <CelebrationTwoToneIcon className="text-stone-400" />
               )}
               {selectedMenu === "dodatkis" && (
-                <AddIcon className="text-stone-400" />
+                <StarOutlineIcon className="text-stone-400" />
               )}
               {item.acf.menuOrder && (
                 <span className="text-xs text-white">
