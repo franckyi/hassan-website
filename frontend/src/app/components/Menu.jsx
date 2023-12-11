@@ -54,11 +54,11 @@ export default function Menu({ selectedMenu }) {
     <div className="p-4 bg-stone-900/90 rounded-xl">
       {selectedMenu === "pizzas" && (
         <p className="mb-4 text-md text-right">
-          <span className="mx-2 py-2 px-4 bg-orange-500 text-white rounded-full italic">
+          <span className="px-2 py-1 lg:mx-2 lg:py-2 lg:px-4 bg-orange-500 text-xs lg:text-base text-white rounded-full italic whitespace-nowrap">
             {standardSize}{" "}
           </span>
           <span className="text-stone-500"> / </span>
-          <span className="mx-2 py-2 px-4 bg-stone-300 text-stone-900 rounded-full italic">
+          <span className="px-2 py-1 lg:mx-2 lg:py-2 lg:px-4 bg-stone-300 text-xs lg:text-base text-stone-900 rounded-full italic whitespace-nowrap">
             {largeSize}
           </span>
         </p>
@@ -70,9 +70,15 @@ export default function Menu({ selectedMenu }) {
         {menuItems &&
           menuItems.map((item) => (
             <li className="flex items-center gap-2 lg:gap-4 mb-8" key={item.id}>
-              {selectedMenu === "pizzas" && <LocalPizzaOutlinedIcon />}
-              {selectedMenu === "kebabs" && <CelebrationTwoToneIcon />}
-              {selectedMenu === "addons" && <AddIcon />}
+              {selectedMenu === "pizzas" && (
+                <LocalPizzaOutlinedIcon className="text-stone-300" />
+              )}
+              {selectedMenu === "kebabs" && (
+                <CelebrationTwoToneIcon className="text-stone-300" />
+              )}
+              {selectedMenu === "addons" && (
+                <AddIcon className="text-stone-300" />
+              )}
               {item.acf.menuOrder && (
                 <span className="text-xs">{item.acf.menuOrder}.</span>
               )}
