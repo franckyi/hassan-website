@@ -33,13 +33,13 @@ export default function Home() {
   return (
     <>
       <AppBar />
-      <main className="overflow-hidden flex min-h-screen flex-col items-center justify-between pb-24 bg-[url('/bg.webp')] bg-top bg-350 lg:bg-contain bg-no-repeat selection:text-orange-500">
+      <main className="overflow-hidden flex min-h-screen flex-col items-center justify-between pb-24 bg-[url('/bg.webp')] bg-top bg-stone-900 lg:bg-contain bg-no-repeat selection:text-orange-500">
         <Intro />
         <PresentationText />
         <InteriorImages />
         <Link
           href="/menu"
-          className="text-2xl text-orange-500 hover:tracking-wider duration-500"
+          className="my-2 p-2 lg:px-4 text-base lg:text-xl bg-orange-500 text-white hover:tracking-wider hover:bg-orange-600 duration-500 rounded-full"
         >
           <MenuBookOutlinedIcon />
           &nbsp; Sprawdź nasz menu
@@ -48,7 +48,7 @@ export default function Home() {
         {businessInfo && (
           <Link
             href={`tel:${businessInfo.acf.telephone}`}
-            className="text-2xl text-orange-500 hover:tracking-wider duration-500"
+            className="my-2 p-2 lg:px-4 text-base lg:text-xl bg-orange-500 text-white hover:tracking-wider hover:bg-orange-600 duration-500 rounded-full"
           >
             <LocalPhoneIcon />
             &nbsp; Zamów {businessInfo.acf.telephone}
