@@ -33,7 +33,7 @@ export default function Home() {
   return (
     <>
       <AppBar />
-      <main className="overflow-hidden flex min-h-screen flex-col items-center justify-between pb-24 bg-[url('/bg.webp')] bg-top bg-stone-900 lg:bg-contain bg-no-repeat selection:text-orange-500">
+      <main className="overflow-hidden flex min-h-screen flex-col items-center justify-between pb-24 bg-[url('/bg.webp')] bg-top bg-stone-900 text-white lg:bg-contain bg-no-repeat selection:text-orange-500">
         <Intro />
         <PresentationText />
         <InteriorImages />
