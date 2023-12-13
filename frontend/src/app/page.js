@@ -42,7 +42,7 @@ export default function Home() {
           className="my-2 p-2 lg:px-4 text-base lg:text-xl bg-orange-500 text-white hover:tracking-wider hover:bg-orange-600 duration-500 rounded-full"
         >
           <MenuBookOutlinedIcon />
-          &nbsp; Sprawdź nasz menu
+          &nbsp; Sprawdź nasze Menu
         </Link>
         {!businessInfo && <CircularIndeterminate />}
         {businessInfo && (
