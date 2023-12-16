@@ -12,24 +12,22 @@ const fallbackImages = [
 
 export default function InteriorImages() {
   const [businessInfo, setBusinessInfo] = useState(null);
-  const [images, setImages] = useState(null);
+  const [images, setImages] = useState([]);
 
   async function getImages() {
+
     try {
       const res = await fetch(homeGalleryImagesUrl);
-  
-      if (!res.ok) {
-        setImages(fallbackImages);
-        return;
-      }
-  
       const imagesResponse = await res.json();
+
       console.log("imagesResponse", imagesResponse);
       setImages(imagesResponse);
-    } catch (error) {
+    }
+    catch (error) {
       console.error("Nie mogłem pobierać aktualne zdjęcia", error);
       setImages(fallbackImages);
     }
+
   }
 
   const fetchBusinessInfo = async () => {
