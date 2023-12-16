@@ -6,6 +6,7 @@ const images = [
   { src: "/local-1.webp" },
   { src: "/local-2.webp" },
   { src: "/local-3.webp" },
+  { src: "/food-1.webp" },
 ];
 
 export default function InteriorImages() {
@@ -34,9 +35,9 @@ export default function InteriorImages() {
             <Image
               key={index}
               src={img.src}
-              className="w-full lg:w-1/3 lg:hover:scale-110 lg:ease-in lg:duration-150"
+              className="w-full lg:w-1/4 lg:hover:scale-110 lg:ease-in lg:duration-150"
               width={400}
-              height={200}
+              height={400}
               alt="wnętrz restauracji"
               draggable="false"
             />
