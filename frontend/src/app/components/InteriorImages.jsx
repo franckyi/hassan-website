@@ -6,7 +6,11 @@ const images = [
   { src: "/local-1.webp" },
   { src: "/local-2.webp" },
   { src: "/local-3.webp" },
+  { src: "/local-4.webp" },
   { src: "/food-1.webp" },
+  { src: "/food-2.webp" },
+  { src: "/food-3.webp" },
+  { src: "/food-4.webp" },
 ];
 
 export default function InteriorImages() {
@@ -29,7 +33,7 @@ export default function InteriorImages() {
   }, []);
   return (
     <>
-      <article className="w-full lg:flex">
+      <article className="w-full lg:flex flex-wrap">
         {images.map((img, index) => {
           return (
             <Image
@@ -50,6 +54,15 @@ export default function InteriorImages() {
           {businessInfo.acf.descriptionPart3}
         </p>
       )}
+
+      <Image
+        src="/food-5.webp"
+        className="lg:w-1/2 lg:m-4 mb-8 lg:rounded-lg"
+        width={400}
+        height={400}
+        alt="zdjęcie potraw: kebab"
+        draggable="false"
+      />
     </>
   );
 }
