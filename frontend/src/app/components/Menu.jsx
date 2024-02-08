@@ -50,6 +50,11 @@ export default function Menu({ selectedMenu }) {
     fetchData();
   }, [selectedMenu]);
 
+  const toggleDarkMode = () => {
+    setIsDarkMode(!isDarkMode);
+    document.documentElement.classList.toggle('dark');
+  };
+
   return (
     <div className="p-4 bg-stone-900/90 rounded-xl">
       {selectedMenu === "pizzas" && (

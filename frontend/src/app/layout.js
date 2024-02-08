@@ -1,5 +1,6 @@
 import { Lora } from "next/font/google";
 import "./globals.css";
+import { Providers } from "./providers.js";
 
 const FONT = Lora({ subsets: ["latin"] });
 
@@ -11,11 +12,13 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="pl">
+    <html lang="pl" suppressHydrationWarning>
       <body
         className={`${FONT.className} selection:bg-amber-300 selection:text-red-900`}
       >
-        {children}
+        <Providers>
+          {children}
+        </Providers>
       </body>
     </html>
   );

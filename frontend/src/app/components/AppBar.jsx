@@ -7,6 +7,8 @@ import HomeIcon from "@mui/icons-material/Home";
 import MenuBookOutlinedIcon from "@mui/icons-material/MenuBookOutlined";
 import MenuIcon from "@mui/icons-material/Menu";
 import getBusinessInfo from "../services/getBusinessInfo";
+import ThemeSwitch from "./ThemeSwitch";
+
 
 const menuItemClasses =
   "lg:ml-4 px-4 py-2 flex flex-col items-center bg-stone-800 lg:hover:bg-orange-500 lg:hover:text-stone-950 rounded-lg";
@@ -53,6 +55,7 @@ export default function AppBar() {
 
   return (
     <>
+    <ThemeSwitch />
       <div
         className="mobile-menu z-50 fixed top-4 right-4 flex items-center justify-center bg-orange-900 hover:bg-orange-800 text-stone-300 rounded-full cursor-pointer"
         onClick={handleNavClick}
