@@ -48,7 +48,7 @@ export default function Contacts() {
         )}
         <iframe
           className="map-iframe lg:ml-auto lg:my-4 border-4 lg:border-8 border-orange-500 rounded-3xl"
-          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2347.14209312779!2d18.5337033!3d53.9647444!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47029c9dd0ca2e29%3A0xdf1c25e2072106f4!2sPizzeria%20Kebab%20Hassan!5e0!3m2!1sit!2spl!4v1701439315221!5m2!1sit!2spl"
+          src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d9388.591662758228!2d18.533721!3d53.964641!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47029c9dd0ca2e29%3A0xdf1c25e2072106f4!2sPizzeria%20Kebab%20Hassan!5e0!3m2!1spl!2spl!4v1712215024663!5m2!1spl!2spl"
           allowfullscreen=""
           loading="lazy"
           referrerpolicy="no-referrer-when-downgrade"
