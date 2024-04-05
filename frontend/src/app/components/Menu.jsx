@@ -40,11 +40,10 @@ export default function Menu({ selectedMenu }) {
         );
 
         setMenuItems(sortedMenuItems);
-        setIsLoading(false);
       } catch (error) {
         console.error("Error fetching data:", error);
-        setIsLoading(false);
       }
+      setIsLoading(false);
     }
 
     fetchData();
